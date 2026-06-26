@@ -4,9 +4,9 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 40px;
-    position: relative; /* Ова е клучно за логото да се центрира точно во средина */
-    padding: 0; /* ГО ТРГНАВ PADDING-от ЗА ДА СЕ КАЧИ ГОРЕ И ДА ИМА МЕСТО ЗА ИКОНИТЕ */
+    height: 40px; /* Зголемено од 40px */
+    position: relative;
+    padding: 0; 
 }
 
 .nav-left {
@@ -30,7 +30,7 @@ nav {
 .nav-link {
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1.15rem; /* Зголемено од 0.95rem */
     letter-spacing: 0.5px;
     position: relative;
     padding-bottom: 4px;
@@ -107,4 +107,53 @@ nav {
 
 .logo {
     z-index: 1;
+}
+
+
+/* --- ДОДАДЕНО: Стил за белото мени на скрол --- */
+.navbar-white {
+    position: fixed;
+    font-weight: 200;
+    top: -120px; 
+    left: 0;
+    width: 100%;
+    height: 90px; /* Додадено за да биде големо колку и првото */
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 0 4rem; /* Сменето од 1.5rem padding за да се центрира перфектно со height */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); 
+    transition: top 0.5s cubic-bezier(0.22, 1, 0.36, 1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Класа која се додава преку JS кога скролаш нагоре */
+.navbar-white.show {
+    top: 0;
+}
+
+/* Промена на сите букви и линии во црна боја */
+.navbar-white .nav-link {
+    color: #000000;
+}
+
+.navbar-white .nav-link::after {
+    background-color: #000000;
+}
+
+.navbar-white .vertical-line {
+    background-color: #000000;
+    opacity: 0.2;
+}
+
+/* Промена на сите икони од десната страна во црна боја */
+.navbar-white .nav-right svg {
+    color: #000000;
+    stroke: #000000;
+}
+
+/* Го претвора логото во црно (ако оригиналното е бело PNG) */
+.navbar-white .logo img {
+    filter: brightness(0); 
 }
