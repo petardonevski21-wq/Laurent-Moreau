@@ -149,3 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+// footer
+    // Вчитување на футерот
+document.addEventListener("DOMContentLoaded", () => {
+    fetch('footer/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Грешка при вчитување на футерот:', error));
+});
+// footer
