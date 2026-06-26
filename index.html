@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laurent & Moreau</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="components/navbar.css"> <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="components/navbar.js" defer></script> 
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <div class="video-container">
+        <video autoplay muted playsinline id="bg-video">
+            <source src="./videa/prvovideo.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <div class="hero-wrapper">
+        
+        <div id="navbar"></div>
+
+        <main class="hero-content">
+            <h1 class="hero-title">Crafted for Generations</h1>
+            <p class="hero-desc">Discover a curated collection of luxury timepieces crafted with precision and elegance. Each watch is a statement of timeless style and exceptional craftsmanship.</p>
+            <a href="#" class="btn-glass">Explore Now</a>
+        </main>
+
+        <div class="video-controls">
+            <button id="play-pause-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+        </div>
+
+    </div>
+
+        <!-- Нова секција според brioni'.JPG -->
+    <section class="grid-collection-section">
+        <!-- Прва колона -->
+        <div class="grid-col">
+            <div class="grid-item tall">
+                <img src="./sliki/summercollection.png" alt="Summer Collection">
+                <span class="grid-text">Summer Collection</span>
+            </div>
+            <div class="grid-item short">
+                <img src="./sliki/dress.png" alt="Dress Watches">
+                <span class="grid-text">Dress Watches</span>
+            </div>
+        </div>
+        
+        <!-- Втора колона -->
+        <div class="grid-col">
+            <div class="grid-item short">
+                <img src="./sliki/chh.jpg" alt="Chronographs">
+                <span class="grid-text">Chronographs</span>
+            </div>
+            <div class="grid-item tall">
+                <img src="./sliki/sportwatch.jpg" alt="Sport Watches">
+                <span class="grid-text">Sport Watches</span>
+            </div>
+        </div>
+        
+        <!-- Трета колона -->
+        <div class="grid-col">
+            <div class="grid-item tall">
+                <img src="./sliki/new.jpg" alt="New Arrivals">
+                <span class="grid-text">New Arrivals</span>
+            </div>
+            <div class="grid-item short">
+                <img src="./sliki/limited.jpg" alt="Limited Edition">
+                <span class="grid-text">Limited Edition</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Нова секција: View our collection -->
+    <section class="collection-section">
+        <div class="collection-header">
+            <div class="collection-text">
+                <span class="scroll-arrow">v</span>
+                <h2>Best Sellers</h2>
+                <p>Discover our exclusive collection of best sellers, where timeless elegance meets exceptional craftsmanship.</p>
+            </div>
+  
+        </div>
+
+        <div class="watches-slider-container">
+            <div class="watches-slider" id="watches-slider">
+                
+                <!-- Саат 1 -->
+                <div class="watch-card">
+                    <div class="watch-image-wrapper">
+                        <img src="./sliki/prvsaat.png" alt="Chronographe Royal" class="watch-img-main">
+                        <img src="./sliki/prvohover.png" alt="Chronographe Royal Hover" class="watch-img-hover">
+                    </div>
+                    <h3 class="watch-name">Chronographe Royal</h3>
+                </div>
+
+                <!-- Саат 2 -->
+                <div class="watch-card">
+                    <div class="watch-image-wrapper">
+                        <img src="./sliki/vtorsaat.png" alt="Tourbillon Éternel" class="watch-img-main">
+                        <img src="./sliki/vtorohover.png" alt="Tourbillon Éternel Hover" class="watch-img-hover">
+                    </div>
+                    <h3 class="watch-name">Tourbillon Éternel</h3>
+                </div>
+
+                <!-- Саат 3 -->
+                <div class="watch-card">
+                    <div class="watch-image-wrapper">
+                        <img src="./sliki/tretsaat.png" alt="Quantième Perpétuel" class="watch-img-main">
+                        <img src="./sliki/tretohover.png" alt="Quantième Perpétuel Hover" class="watch-img-hover">
+                    </div>
+                    <h3 class="watch-name">Quantième Perpétuel</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="built-section">
+        <div class="built-content">
+            <p class="built-subtitle">A Cartier Summer</p>
+            <h2 class="built-title">The joys of summer are made even more precious by the magic of the Laurent & Moreau creations.</h2>
+        </div>
+        
+        <div class="built-video-container">
+            <div class="built-video-inner">
+                <video id="built-video" muted playsinline loop>
+                    <source src="./videa/videoanimacija.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

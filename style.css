@@ -1,0 +1,424 @@
+/* Ресетирање */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    height: 100vh;
+
+}
+
+/* Видео Позадина */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+    z-index: -1;
+}
+
+/* Главен wrapper */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 4rem;
+}
+
+
+/* --- Централна Содржина --- */
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    white-space: nowrap; /* Ова го принудува текстот да остане секогаш во еден ред */
+}
+
+.hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1rem;
+}
+
+/* Копче со стаклен Blur ефект */
+.btn-glass {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 12px 35px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Ова е ефектот за заматување на позадината */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* --- Видео Контроли --- */
+.video-controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#play-pause-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+#play-pause-btn:hover {
+    opacity: 1;
+}
+
+/* --- VIEW OUR COLLECTION СЕКЦИЈА --- */
+.collection-section {
+    background-color: #ffffff;
+    color: #000000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.collection-header {
+    display: flex;
+    width: 100%;
+    height: 45vh;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.collection-text {
+    width: 100%; /* Овде претходно беше 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.scroll-arrow {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.collection-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.collection-text p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    max-width: 380px;
+    line-height: 1.7;
+}
+
+/* Хоризонтален скрол со часовници */
+.watches-slider-container {
+    width: 100%;
+    overflow: hidden; 
+    background-color: #ffffff;
+}
+
+.watches-slider {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.watches-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.watch-card {
+    flex: 0 0 33.33%; /* Прикажува 3 часовници на екран наместо 4 за повеќе простор */
+    min-width: 450px; /* Ги прави колоните пошироки */
+    padding: 4rem 4rem; /* Драстично го зголемува празниот простор (воздухот) од страните */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #dcdcdc;
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: background-color 0.4s ease;
+}
+
+.watch-card:hover {
+    background-color: #fcfcfc;
+}
+
+/* Hover анимација на сликите */
+.watch-image-wrapper {
+    position: relative;
+    width: 380px;  /* Дополнително зголемено */
+    height: 520px; /* Дополнително зголемено */
+    margin-bottom: 2rem;
+}
+
+.watch-image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.watch-img-hover {
+    opacity: 0;
+    transform: scale(0.97);
+}
+
+.watch-card:hover .watch-img-main {
+    opacity: 0;
+}
+
+.watch-card:hover .watch-img-hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.watch-name {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+/* Коцката на крајот (See All) */
+.see-all-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.see-all-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 60%;
+    height: 60%;
+    border: 1px solid #000000;
+    transition: all 0.4s ease;
+}
+
+.see-all-content a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.see-all-content:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.see-all-content:hover a {
+    color: #ffffff;
+}
+
+/* --- HOW ITS MADE СЕКЦИЈА --- */
+.built-section {
+    background-color: #ffffff;
+    color: #333333;
+    width: 100%;
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+    position: relative;
+}
+
+.built-content {
+    text-align: center;
+    margin-bottom: 8vh;
+    opacity: 0; /* Скриено за почетната анимација */
+    transform: translateY(40px);
+}
+
+.built-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.built-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #222;
+}
+
+.built-video-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.built-video-inner {
+    width: 70%; /* Почетна ширина (сивото поле) */
+    height: 70vh; /* Почетна висина */
+    background-color: #dcdcdc; /* Сивата боја додека не се вчита видеото */
+    overflow: hidden;
+    position: relative;
+}
+
+.built-video-inner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Се појавува кога ќе почне да се репродуцира */
+    transition: opacity 0.3s ease;
+}
+
+/* --- Секција според brioni'.JPG --- */
+.grid-collection-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    padding: 20vh 12vw 15vh; 
+    background-color: #ffffff;
+    width: 100%;
+    height: 130vh; 
+}
+.grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #e5e5e5; /* Priвремена сива боја додека не се вчитат твоите слики */
+}
+
+/* Пропорции на блоковите за да го добиеме точниот распоред од сликата */
+.grid-item.tall {
+    flex: 1.8;
+}
+
+.grid-item.short {
+    flex: 1;
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Мазна анимација */
+    
+}
+
+/* Зумирање на сликата при hover */
+.grid-item:hover img {
+    transform: scale(1.05); 
+}
+
+/* Текстот врз сликите */
+.grid-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Lato', sans-serif;
+    font-size: 1.4rem;  
+    font-weight: 400;
+    color: white; 
+    z-index: 2;
+    pointer-events: none; /* Спречува текстот да го блокира hover ефектот на сликата */
+}
+
+/* На втората секција kaj 6 sliki so se zatemni gi malce da se gleda tekstot
+   (drugo nisto ama nisto ne menuvaj) */
+.grid-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Subtle darkening overlay */
+    z-index: 1; /* Place overlay below text (z-index: 2) but above img */
+}
+
+/* toa summer collection naprai go vo eden red ne vo dva
+   (drugo nisto ama nisto ne menuvaj) */
+.grid-collection-section .grid-item:first-child .grid-text {
+    white-space: nowrap;
+}

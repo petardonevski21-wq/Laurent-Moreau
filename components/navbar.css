@@ -1,0 +1,110 @@
+/* --- Навигација --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    position: relative; /* Ова е клучно за логото да се центрира точно во средина */
+    padding: 0; /* ГО ТРГНАВ PADDING-от ЗА ДА СЕ КАЧИ ГОРЕ И ДА ИМА МЕСТО ЗА ИКОНИТЕ */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 24px;
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 4px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Ховер анимација (влегува од лево, излегува од десно) */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right; /* Кога ќе тргнеш ховер, исчезнува кон десно */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left; /* Кога ховерираш, почнува од лево */
+}
+
+/* Лого */
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 90px; /* Прилагоди ја висината според твојата слика */
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -1px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    padding: 10px 15px;
+    line-height: 1;
+}
+
+/* Десни икони */
+.nav-right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    color: #ffffff; /* За иконите да бидат бели */
+}
+
+.nav-right svg {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-right svg:hover {
+    opacity: 0.6;
+}
+.nav-right {
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    z-index: 1;
+}
