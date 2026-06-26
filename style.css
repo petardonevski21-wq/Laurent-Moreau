@@ -67,7 +67,7 @@ body {
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
-    font-weight: 400;
+    font-weight: 200;
     letter-spacing: 1px;
     white-space: nowrap; /* Ова го принудува текстот да остане секогаш во еден ред */
 }
@@ -536,14 +536,14 @@ body {
 }
 
 
-.btn-glass {
-    color: #ffffff;
+.kopceposledno {
+    color: black;
     text-decoration: none;
     font-size: 0.9rem;
     letter-spacing: 1px;
     padding: 12px 35px;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(53, 53, 53, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     /* Ова е ефектот за заматување на позадината */
     backdrop-filter: blur(10px);
@@ -551,7 +551,52 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-glass:hover {
+.kopceposledno:hover {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
+}
+/* --- EXPLORE FURTHER СЕКЦИЈА (ex.JPG) --- */
+.explore-further-section {
+    position: relative;
+    width: 100%;
+    height: 70vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./sliki/posledna.png'); 
+    background-size: cover;
+    
+    /* СМЕНИ ГО ОВА: Наместо само 'center', додади процент. 
+       Пробај со 20% или 30%. Колку е помал процентот (или ако ставиш 'top'), толку повеќе ќе се гледа горниот дел од сликата, односно сликата ќе се "спушти". */
+    background-position: center 20%; 
+    
+    background-repeat: no-repeat;
+}
+
+/* Темна фолија преку сликата за да се чита текстот и стакленото копче */
+.explore-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.explore-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateY(-150px); /* ОВА Е НОВОТО: Го крева целиот блок нагоре. Ако сакаш уште погоре, стави -80px или -100px */
+}
+
+.explore-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: black;
+    letter-spacing: 1px;
 }
