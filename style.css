@@ -422,3 +422,136 @@ body {
 .grid-collection-section .grid-item:first-child .grid-text {
     white-space: nowrap;
 }
+
+/* --- SHOWCASE СЕКЦИЈА (animacija.JPG) --- */
+.showcase-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Чиста бела за максимален фокус */
+    height: 100vh;
+    width: 100%;
+    color: #000000;
+    overflow: hidden;
+}
+
+.showcase-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showcase-3d-model {
+    width: 100%;
+    height: 85vh; /* Драстично зголемено за да биде како на сликата */
+    max-width: 900px;
+    --poster-color: transparent;
+    outline: none;
+}
+
+.showcase-left {
+    position: absolute;
+    left: 6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 2; /* Обезбедува да стои над моделот */
+}
+
+.showcase-link {
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: #000000; 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.showcase-link-bold {
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 12px 35px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Црна рамка бидејќи позадината е бела */
+    background: rgba(0, 0, 0, 0.05); /* Многу благ сив ефект наместо стаклен */
+    color: #000000;
+    font-weight: 400;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+.showcase-link-bold:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+.showcase-title {
+    font-family: 'Lato', sans-serif; 
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: -0.5rem;
+}
+
+.showcase-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.showcase-right {
+    position: absolute;
+    right: 6rem;
+    bottom: 5rem;
+    z-index: 2;
+}
+
+.showcase-pause-btn {
+    background-color: #e5e5e5;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #000000;
+    transition: background-color 0.3s ease;
+}
+
+.showcase-pause-btn:hover {
+    background-color: #d0d0d0;
+}
+
+
+.btn-glass {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 12px 35px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Ова е ефектот за заматување на позадината */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}

@@ -131,3 +131,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "none"
     });
 });
+
+// --- Контрола за 3D моделот (Pause/Play) ---
+    const modelViewer = document.querySelector(".showcase-3d-model");
+    const pauseBtn = document.querySelector(".showcase-pause-btn");
+
+    if (modelViewer && pauseBtn) {
+        pauseBtn.addEventListener("click", () => {
+            if (modelViewer.paused) {
+                modelViewer.play();
+                // Враќа икона за пауза
+                pauseBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+            } else {
+                modelViewer.pause();
+                // Враќа икона за пуштање (play)
+                pauseBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+            }
+        });
+    }
