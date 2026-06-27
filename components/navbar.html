@@ -1,15 +1,14 @@
 <header class="navbar">
     <div class="nav-left">
-        <!-- Бургер мени (видливо само на мобилен) -->
         <div class="hamburger js-hamburger">
             <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
         
         <span class="vertical-line"></span>
         <nav>
-            <a href="#" class="nav-link">Watches</a>
+            <a href="#" class="nav-link js-watches-link">Watches</a>
             <a href="#" class="nav-link">Collections</a>
-            <a href="#" class="nav-link">Journal</a>
+            <a href="" class="nav-link">Journal</a>
             <a href="#" class="nav-link">Service</a>
         </nav>
     </div>
@@ -24,10 +23,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.0"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
     </div>
 
-    <!-- Мобилно Мени Overlay (Анимација од горе) -->
     <div class="mobile-menu-overlay js-mobile-menu">
         <div class="mobile-menu-header">
-            <!-- Икс за гасење -->
             <button class="close-menu js-close-menu">
                 <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
@@ -53,21 +50,39 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     Boutiques
                 </a>
-                <a href="#" class="mobile-sublink">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    Login or sign up
-                </a>
-                <a href="#" class="mobile-sublink">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    Change language / currency
-                </a>
             </div>
         </div>
 
-
         <div class="mobile-menu-bottom-img">
-            <!-- Стави ја точната патека до твојата слика -->
             <img src="./sliki/tvoja-slika-za-meni.png" alt="Menu Decoration">
+        </div>
+    </div>
+
+    <div class="mega-menu js-mega-menu">
+        <div class="mega-menu-content">
+            <div class="mega-menu-left">
+                <h3 class="mega-menu-title">OUR WATCHES</h3>
+                <ul class="mega-menu-links">
+                    <li><a href="#">All Watches</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Limited Edition</a></li>
+                </ul>
+            </div>
+            <div class="mega-menu-right">
+                <a href="#" class="mega-menu-image-card">
+                    <img src="./sliki/prvsaat.png" alt="Collection 1">
+                    <span>Classic</span>
+                </a>
+                <a href="#" class="mega-menu-image-card">
+                    <img src="./sliki/vtorsaat.png" alt="Collection 2">
+                    <span>Sport</span>
+                </a>
+                <a href="#" class="mega-menu-image-card">
+                    <img src="./sliki/tretsaat.png" alt="Collection 3">
+                    <span>Diver</span>
+                </a>
+            </div>
         </div>
     </div>
 </header>

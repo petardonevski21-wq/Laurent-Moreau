@@ -24,13 +24,12 @@ fetch("components/navbar.html")
             lastScroll = currentScroll;
         });
         
-        // Ја повикуваме функцијата за мобилното мени откако сè е вчитано
         setupMobileMenu();
+        setupMegaMenu();
     }
   });
 
 function setupMobileMenu() {
-    // Ги фаќаме и главното и белото мени на скрол
     const navbars = document.querySelectorAll('.navbar, .navbar-white');
     
     navbars.forEach(nav => {
@@ -41,16 +40,49 @@ function setupMobileMenu() {
         if (hamburger && mobileMenu && closeBtn) {
             hamburger.addEventListener('click', () => {
                 mobileMenu.classList.add('active');
-                // Го гасиме скролањето на позадината кога менито е отворено
                 document.body.style.overflow = 'hidden'; 
-                if (typeof lenis !== 'undefined') lenis.stop(); // Гасење на Lenis
+                if (typeof lenis !== 'undefined') lenis.stop();
             });
             
             closeBtn.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-                // Го враќаме скролањето
                 document.body.style.overflow = ''; 
                 if (typeof lenis !== 'undefined') lenis.start();
+            });
+        }
+    });
+}
+
+function setupMegaMenu() {
+    const navbars = document.querySelectorAll('.navbar, .navbar-white');
+    
+    navbars.forEach(nav => {
+        const watchesLink = nav.querySelector('.js-watches-link');
+        const megaMenu = nav.querySelector('.js-mega-menu');
+        
+        if (watchesLink && megaMenu) {
+            watchesLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                document.querySelectorAll('.js-mega-menu').forEach(menu => {
+                    if (menu !== megaMenu) {
+                        menu.classList.remove('active');
+                        // Ги гасиме сите други отворени менија
+                        const parentNav = menu.closest('.navbar, .navbar-white');
+                        if (parentNav) parentNav.classList.remove('mega-active');
+                    }
+                });
+                
+                // Ја додава/брише класата за менито и за белата позадина
+                const isActive = megaMenu.classList.toggle('active');
+                nav.classList.toggle('mega-active', isActive);
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && megaMenu.classList.contains('active')) {
+                    megaMenu.classList.remove('active');
+                    nav.classList.remove('mega-active');
+                }
             });
         }
     });
