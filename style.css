@@ -594,7 +594,7 @@ body {
 }
 
 .explore-title {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
     font-weight: 400;
     color: black;
@@ -602,107 +602,194 @@ body {
 }
 
 /* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
+/* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
 @media (max-width: 1024px) {
     
-    /* 1. Тргање на црните линии на видеото (зумирано за да се сокријат) */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100vw;
+        max-width: 100%;
+        position: relative;
+    }
+
+    /* 1. Hero Секција */
     #bg-video {
         object-fit: cover;
         object-position: center;
         width: 100%;
         height: 100vh;
-        transform: scale(1.05); /* Додадено благо зумирање за да ги снема линиите */
+        transform: scale(1.05); 
     }
 
-    /* Hero Title во два реда */
     .hero-title {
         font-size: 2.2rem;
         white-space: normal; 
-        line-height: 1.2;
+        line-height: 1.3;
+        padding: 0 1rem;
     }
-    .hero-wrapper { padding: 1.5rem; }
-
-    /* 2. Best Sellers Slider - Подобрен скрол (саатите се доближени за да ѕирка следниот) */
-    .collection-text h2 { font-size: 2.2rem; }
-    .collection-header { height: auto; padding: 3rem 0; }
     
+    .hero-wrapper { 
+        padding: 1.5rem; 
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    /* 2. Best Sellers Slider */
+    .collection-section {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .collection-text h2 { font-size: 2.2rem; }
+    .collection-text p { padding: 0 1rem; }
+    .collection-header { height: auto; padding: 3rem 0; width: 100%; }
+    
+    .watches-slider-container {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+
     .watches-slider {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 0; /* Тргнат gap за да се доближат */
-        padding-left: 1rem; /* Просторот од лево за првиот саат */
-        padding-right: 1.5rem; /* Простор на крајот за да не се лепи до екран */
+        gap: 0;
+        padding-left: 1rem; 
+        padding-right: 1.5rem; 
+        width: 100%;
+        -webkit-overflow-scrolling: touch; 
     }
     
     .watch-card {
-        min-width: 70vw; /* Намалено од 85vw на 70vw за повеќе да ѕирка следниот саат */
-        padding: 1rem 0.5rem; /* Намален внатрешен простор за поголема близина */
+        min-width: 75vw; 
+        padding: 2rem 0.5rem; 
         scroll-snap-align: center;
+        border-right: none; 
     }
     
     .watch-image-wrapper {
-        width: 260px; /* Малку намалена ширина за да собере повеќе содржина на екран */
-        height: 360px; 
-    }
-
-    /* How it's made - Видео секција */
-    .built-section { padding-top: 10vh; }
-    .built-title { font-size: 1.5rem; padding: 0 1rem; }
-    .built-video-inner {
         width: 100%; 
-        height: 50vh;
+        max-width: 260px;
+        height: 360px; 
+        margin: 0 auto 1.5rem auto;
     }
 
-    /* Grid сликите перфектно на средина */
-    .grid-collection-section {
-        display: flex;
-        flex-direction: column; 
-        padding: 5vh 1.5rem;
-        height: auto; 
-    }
-    .grid-col { gap: 15px; height: auto; }
-    .grid-item {
-        height: 320px; 
+    /* 3. Cartier Summer видео - ОПРАВЕНА АНИМАЦИЈАТА */
+    .built-section { 
+        padding-top: 10vh; 
         width: 100%;
+        overflow: hidden;
     }
-    .grid-item img {
-        object-fit: cover;
-        object-position: center; 
+    
+    .built-title { 
+        font-size: 1.5rem; 
+        padding: 0 1.5rem; 
     }
-    .grid-collection-section .grid-item:first-child .grid-text {
-        white-space: normal; text-align: center;
+    
+    .built-video-container {
+        width: 100%;
+        height: 100vh; /* Потребно за GSAP анимацијата да има простор */
     }
 
-    /* Showcase 3D модел - Редење во колона */
+    .built-video-inner {
+        width: 80%; /* Започнува од 80% за да може анимацијата да го прошири до 100% */
+        height: 50vh; /* Започнува помало за да се зумира */
+    }
+
+    /* 4. GRID СЕКЦИЈА - ПЕРФЕКТНО РАСПОРЕДЕНО СПОРЕД СЛИКАТА */
+    .grid-collection-section {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Строго 2 колони */
+        grid-auto-rows: 10vh !important; /* Математика за висината на коцките */
+        gap: 15px !important;
+        padding: 5vh 1rem !important;
+        height: auto !important; 
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ова ги "крши" десктоп колоните за да можеме да ги местиме елементите еден по еден */
+    .grid-col { display: contents !important; }
+
+    /* Позиционирање на елементите според твојата слика */
+    /* ЛЕВА СТРАНА */
+    .grid-col:nth-child(1) .grid-item:nth-child(1) { grid-column: 1; grid-row: 1 / 4; } /* Blazers (Многу висока) */
+    .grid-col:nth-child(1) .grid-item:nth-child(2) { grid-column: 1; grid-row: 4 / 6; } /* Ties (Ниска) */
+    .grid-col:nth-child(3) .grid-item:nth-child(1) { grid-column: 1; grid-row: 6 / 9; } /* Formal shirts (Висока) */
+    
+    /* ДЕСНА СТРАНА */
+    .grid-col:nth-child(2) .grid-item:nth-child(1) { grid-column: 2; grid-row: 1 / 3; } /* Knitwear (Ниска) */
+    .grid-col:nth-child(2) .grid-item:nth-child(2) { grid-column: 2; grid-row: 3 / 7; } /* Suits (Највисока) */
+    .grid-col:nth-child(3) .grid-item:nth-child(2) { grid-column: 2; grid-row: 7 / 9; } /* Loafers (Ниска) */
+
+    .grid-item {
+        position: relative !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .grid-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    .grid-collection-section .grid-text {
+        white-space: normal !important; 
+        text-align: center !important;
+        padding: 0 0.5rem !important;
+        font-size: 1.1rem !important;
+        width: 100% !important;
+    }
+
+    /* 5. Showcase 3D модел */
     .showcase-section {
         flex-direction: column;
         height: auto;
         padding: 4rem 1.5rem;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
+    
     .showcase-left {
-        position: relative; left: 0; top: 0;
-        transform: none;
-        align-items: center;
-        order: 1; 
-        margin-bottom: 2rem;
+        position: relative; left: 0; top: 0; transform: none;
+        align-items: center; order: 1; margin-bottom: 2rem; width: 100%;
     }
+    
     .showcase-center { order: 2; width: 100%; }
-    .showcase-3d-model { height: 50vh; }
+    .showcase-3d-model { height: 50vh; width: 100%; }
+    
     .showcase-right {
         position: relative; right: 0; bottom: 0;
-        order: 3; margin-top: 2rem;
+        order: 3; margin-top: 2rem; display: flex; justify-content: center; width: 100%;
     }
 
-    /* 3. Explore Further (Подигнат текст и копче многу погоре за да не смета сликата) */
+    /* 6. Explore Further (кренато многу погоре) */
+    .explore-further-section {
+        width: 100%;
+        background-position: center top; 
+        overflow: hidden;
+        height: 60vh; 
+    }
+
     .explore-title { 
         font-size: 2.2rem; 
         text-align: center; 
-        margin-bottom: 5px; 
+        margin-bottom: 15px; 
+        padding: 0 1rem;
     }
+    
     .explore-content {
-        transform: translateY(-160px); /* Го кренавме уште повеќе нагоре (претходно беше -80px) */
+        transform: translateY(-180px); /* Подигнато високо нагоре */
         padding: 0 1.5rem;
-        gap: 15px; /* Го намалува просторот меѓу насловот и копчето */
+        gap: 10px; 
+        width: 100%;
     }
 }
