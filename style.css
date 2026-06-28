@@ -604,12 +604,13 @@ body {
 /* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
 @media (max-width: 1024px) {
     
-    /* 1. Тргање на црните линии на видеото */
+    /* 1. Тргање на црните линии на видеото (зумирано за да се сокријат) */
     #bg-video {
         object-fit: cover;
         object-position: center;
         width: 100%;
         height: 100vh;
+        transform: scale(1.05); /* Додадено благо зумирање за да ги снема линиите */
     }
 
     /* Hero Title во два реда */
@@ -620,7 +621,7 @@ body {
     }
     .hero-wrapper { padding: 1.5rem; }
 
-    /* 2. Best Sellers Slider - Подобрен скрол (да ѕирка следната слика) */
+    /* 2. Best Sellers Slider - Подобрен скрол (саатите се доближени за да ѕирка следниот) */
     .collection-text h2 { font-size: 2.2rem; }
     .collection-header { height: auto; padding: 3rem 0; }
     
@@ -628,19 +629,20 @@ body {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 15px; /* Ги доближува картичките */
+        gap: 0; /* Тргнат gap за да се доближат */
+        padding-left: 1rem; /* Просторот од лево за првиот саат */
         padding-right: 1.5rem; /* Простор на крајот за да не се лепи до екран */
     }
     
     .watch-card {
-        min-width: 85vw; /* Намалено од 100vw за да се гледа дека има уште за скролање */
-        padding: 2rem 1rem;
+        min-width: 70vw; /* Намалено од 85vw на 70vw за повеќе да ѕирка следниот саат */
+        padding: 1rem 0.5rem; /* Намален внатрешен простор за поголема близина */
         scroll-snap-align: center;
     }
     
     .watch-image-wrapper {
-        width: 280px; 
-        height: 380px; 
+        width: 260px; /* Малку намалена ширина за да собере повеќе содржина на екран */
+        height: 360px; 
     }
 
     /* How it's made - Видео секција */
@@ -692,14 +694,14 @@ body {
         order: 3; margin-top: 2rem;
     }
 
-    /* 3. Explore Further (Подигнат текст и копче) */
+    /* 3. Explore Further (Подигнат текст и копче многу погоре за да не смета сликата) */
     .explore-title { 
         font-size: 2.2rem; 
         text-align: center; 
         margin-bottom: 5px; 
     }
     .explore-content {
-        transform: translateY(-80px); /* Го креваме целиот контејнер нагоре */
+        transform: translateY(-170px); /* Го кренавме уште повеќе нагоре (претходно беше -80px) */
         padding: 0 1.5rem;
         gap: 15px; /* Го намалува просторот меѓу насловот и копчето */
     }
