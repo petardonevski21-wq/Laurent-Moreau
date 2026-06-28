@@ -311,28 +311,59 @@ nav {
 /* --- МОБИЛНА ВЕРЗИЈА (Телефони и Таблети до 1024px) --- */
 @media (max-width: 1024px) {
     .navbar, .navbar-white {
-        padding: 0 1.5rem !important; 
+        padding: 0 1.2rem !important; 
+        height: 60px; /* Повеќе простор за дишење на навигацијата */
     }
     
     .nav-left nav, .nav-left .vertical-line, .mega-menu {
         display: none !important;
     }
 
+    /* Распоред: Бургер лево */
+    .nav-left {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
     .hamburger {
-        display: block;
+        display: flex;
+        align-items: center;
         cursor: pointer;
         color: #ffffff;
         z-index: 10;
+        padding: 5px; /* За полесен клик со прст */
     }
+    
     .navbar-white .hamburger {
         color: #000000;
     }
 
-    .logo img { height: 60px !important; }
-    .nav-right { gap: 1rem !important; }
-    .nav-right svg { width: 26px !important; height: 26px !important; }
+    /* Распоред: Лого перфектно на средина */
+    .logo { 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+    .logo img { 
+        height: 40px !important; /* Намалено за да не се преклопува со иконите */
+    }
 
-    /* --- OVERLAY МЕНИ --- */
+    /* Распоред: Иконите десно (часовник, локација, срце) */
+    .nav-right { 
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.8rem !important; /* Приближени за да ги собере сите 3 на мал екран */
+    }
+    .nav-right svg { 
+        width: 22px !important; /* Намалени пропорционално за мобилен */
+        height: 22px !important; 
+    }
+
+    /* --- OVERLAY МЕНИ ПРОФЕСИОНАЛЕН СТИЛ --- */
     .mobile-menu-overlay {
         display: flex;
         flex-direction: column;
@@ -345,7 +376,7 @@ nav {
         background-color: #ffffff;
         z-index: 99999;
         transform: translateY(-100%); 
-        transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1); 
+        transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); /* Премиум мазна транзиција */
         color: #000000;
         overflow-y: auto;
     }
@@ -358,8 +389,9 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem;
+        padding: 1.2rem;
         background: #ffffff;
+        border-bottom: 1px solid rgba(0,0,0,0.05); /* Суптилна линија за чист изглед */
     }
 
     .close-menu {
@@ -367,55 +399,73 @@ nav {
         border: none;
         cursor: pointer;
         color: #000000;
-        padding: 0;
+        padding: 5px;
         display: flex;
     }
 
     .mobile-logo img {
-        height: 55px;
+        height: 40px;
         filter: brightness(0); 
     }
 
     .mobile-nav-links {
         display: flex;
         flex-direction: column;
-        padding: 1rem 2rem 3rem 2rem;
+        padding: 2.5rem 2rem;
         gap: 1.8rem;
+        flex-grow: 1; /* Ова автоматски ја турка сликата најдолу */
     }
 
     .mobile-link {
         text-decoration: none;
         color: #000000;
         font-family: 'Lato', sans-serif;
-        font-size: 1.15rem;
-        font-weight: 600;
+        font-size: 1.4rem; /* Поелегантен, поголем фонт */
+        font-weight: 400;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+        padding-bottom: 12px;
     }
 
     .mobile-link .arrow {
         font-weight: 300;
         font-family: sans-serif;
         font-size: 1.2rem;
-        color: #333;
+        color: #888;
     }
 
     .mobile-sub-links {
-        margin-top: 2rem;
+        margin-top: 1rem;
         display: flex;
         flex-direction: column;
-        gap: 1.8rem;
+        gap: 1.5rem;
     }
 
     .mobile-sublink {
         text-decoration: none;
-        color: #000000;
+        color: #444444;
         font-family: 'Lato', sans-serif;
-        font-size: 0.95rem;
+        font-size: 1rem;
         font-weight: 400;
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+
+    /* --- ОПРАВЕНА СЛИКА ВО МЕНИТО --- */
+    .mobile-menu-bottom-img {
+        width: 100%;
+        padding: 0 2rem 2.5rem 2rem;
+        margin-top: auto; /* Секогаш ја лепи за дното на екранот */
+    }
+
+    .mobile-menu-bottom-img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover; /* Перфектно ја сече без да се изобличи (развлече) */
+        object-position: center;
+        display: block;
     }
 }

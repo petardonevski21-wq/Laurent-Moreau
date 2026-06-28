@@ -603,6 +603,15 @@ body {
 
 /* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
 @media (max-width: 1024px) {
+    
+    /* 1. Тргање на црните линии на видеото */
+    #bg-video {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100vh;
+    }
+
     /* Hero Title во два реда */
     .hero-title {
         font-size: 2.2rem;
@@ -611,41 +620,52 @@ body {
     }
     .hero-wrapper { padding: 1.5rem; }
 
-    /* Best Sellers Slider - Еден часовник на екран */
+    /* 2. Best Sellers Slider - Подобрен скрол (да ѕирка следната слика) */
     .collection-text h2 { font-size: 2.2rem; }
     .collection-header { height: auto; padding: 3rem 0; }
-    .watch-card {
-        min-width: 100vw; /* Зема цела ширина на екранот */
-        padding: 3rem 1.5rem;
+    
+    .watches-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px; /* Ги доближува картичките */
+        padding-right: 1.5rem; /* Простор на крајот за да не се лепи до екран */
     }
+    
+    .watch-card {
+        min-width: 85vw; /* Намалено од 100vw за да се гледа дека има уште за скролање */
+        padding: 2rem 1rem;
+        scroll-snap-align: center;
+    }
+    
     .watch-image-wrapper {
         width: 280px; 
-        height: 380px; /* Смалени пропорции за мобилен */
+        height: 380px; 
     }
 
     /* How it's made - Видео секција */
     .built-section { padding-top: 10vh; }
     .built-title { font-size: 1.5rem; padding: 0 1rem; }
     .built-video-inner {
-        width: 100%; /* На мобилен видеото е преку цел екран */
+        width: 100%; 
         height: 50vh;
     }
 
     /* Grid сликите перфектно на средина */
     .grid-collection-section {
         display: flex;
-        flex-direction: column; /* Ги реди една под друга */
+        flex-direction: column; 
         padding: 5vh 1.5rem;
         height: auto; 
     }
     .grid-col { gap: 15px; height: auto; }
     .grid-item {
-        height: 320px; /* Фиксна висина за убав прозорец кон сликата */
+        height: 320px; 
         width: 100%;
     }
     .grid-item img {
         object-fit: cover;
-        object-position: center; /* Перфектно центрирање! */
+        object-position: center; 
     }
     .grid-collection-section .grid-item:first-child .grid-text {
         white-space: normal; text-align: center;
@@ -662,7 +682,7 @@ body {
         position: relative; left: 0; top: 0;
         transform: none;
         align-items: center;
-        order: 1; /* Оди прво текстот */
+        order: 1; 
         margin-bottom: 2rem;
     }
     .showcase-center { order: 2; width: 100%; }
@@ -672,10 +692,15 @@ body {
         order: 3; margin-top: 2rem;
     }
 
-    /* Explore Further (Сликата спуштена) */
-    .explore-title { font-size: 2.2rem; text-align: center; }
+    /* 3. Explore Further (Подигнат текст и копче) */
+    .explore-title { 
+        font-size: 2.2rem; 
+        text-align: center; 
+        margin-bottom: 5px; 
+    }
     .explore-content {
-        transform: translateY(0); /* Враќаме на средина за мобилен */
+        transform: translateY(-80px); /* Го креваме целиот контејнер нагоре */
         padding: 0 1.5rem;
+        gap: 15px; /* Го намалува просторот меѓу насловот и копчето */
     }
 }
