@@ -701,7 +701,7 @@ body {
         margin-bottom: 5px; 
     }
     .explore-content {
-        transform: translateY(-170px); /* Го кренавме уште повеќе нагоре (претходно беше -80px) */
+        transform: translateY(-160px); /* Го кренавме уште повеќе нагоре (претходно беше -80px) */
         padding: 0 1.5rem;
         gap: 15px; /* Го намалува просторот меѓу насловот и копчето */
     }
