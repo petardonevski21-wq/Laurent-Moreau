@@ -33,6 +33,11 @@
 /* Менување на боите во црно кога ќе се кликне Watches */
 .navbar.mega-active .nav-link { color: #000000; }
 .navbar.mega-active .nav-link::after { background-color: #000000; }
+/* Линија под Watches кога е активно мега-менито */
+.navbar.mega-active .active-menu-link::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
 .navbar.mega-active .vertical-line { background-color: #000000; opacity: 0.2; }
 .navbar.mega-active .nav-right svg { color: #000000; stroke: #000000; }
 .navbar.mega-active .logo img { filter: brightness(0); }

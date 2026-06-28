@@ -52,38 +52,77 @@ function setupMobileMenu() {
         }
     });
 }
-
 function setupMegaMenu() {
     const navbars = document.querySelectorAll('.navbar, .navbar-white');
     
     navbars.forEach(nav => {
+        // Елементи за Watches
         const watchesLink = nav.querySelector('.js-watches-link');
-        const megaMenu = nav.querySelector('.js-mega-menu');
+        const watchesMenu = nav.querySelector('.js-mega-menu'); 
         
-        if (watchesLink && megaMenu) {
-            watchesLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                document.querySelectorAll('.js-mega-menu').forEach(menu => {
-                    if (menu !== megaMenu) {
-                        menu.classList.remove('active');
-                        // Ги гасиме сите други отворени менија
-                        const parentNav = menu.closest('.navbar, .navbar-white');
-                        if (parentNav) parentNav.classList.remove('mega-active');
-                    }
-                });
-                
-                // Ја додава/брише класата за менито и за белата позадина
-                const isActive = megaMenu.classList.toggle('active');
-                nav.classList.toggle('mega-active', isActive);
-            });
+        // Елементи за Collections
+        const collectionsLink = nav.querySelector('.js-collections-link');
+        const collectionsMenu = nav.querySelector('.js-mega-menu-collections'); 
+        
+        // Универзална функција за контрола
+        function handleMenuClick(e, clickedLink, menuToToggle, otherLink, otherMenu) {
+            e.preventDefault();
             
-            document.addEventListener('click', (e) => {
-                if (!nav.contains(e.target) && megaMenu.classList.contains('active')) {
-                    megaMenu.classList.remove('active');
-                    nav.classList.remove('mega-active');
-                }
-            });
+            // Ако другото мени е отворено, затвори го веднаш
+            if (otherMenu && otherMenu.classList.contains('active')) {
+                otherMenu.classList.remove('active');
+                if (otherLink) otherLink.classList.remove('active-menu-link');
+            }
+            
+            // Отвори го или затвори го кликнатото мени
+            const isActive = menuToToggle.classList.toggle('active');
+            clickedLink.classList.toggle('active-menu-link', isActive);
+            
+            // Контрола на позадината и скролањето
+            if (isActive) {
+                nav.classList.add('mega-active');
+                document.body.style.overflow = 'hidden'; 
+                if (typeof lenis !== 'undefined') lenis.stop();
+            } else {
+                nav.classList.remove('mega-active');
+                document.body.style.overflow = ''; 
+                if (typeof lenis !== 'undefined') lenis.start();
+            }
         }
+
+        // Клик на Watches
+        if (watchesLink && watchesMenu) {
+            watchesLink.addEventListener('click', (e) => handleMenuClick(e, watchesLink, watchesMenu, collectionsLink, collectionsMenu));
+        }
+        
+        // Клик на Collections
+        if (collectionsLink && collectionsMenu) {
+            collectionsLink.addEventListener('click', (e) => handleMenuClick(e, collectionsLink, collectionsMenu, watchesLink, watchesMenu));
+        }
+        
+        // Гасење на менијата ако се кликне некаде надвор
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target)) {
+                let closedAny = false;
+                
+                if (watchesMenu && watchesMenu.classList.contains('active')) {
+                    watchesMenu.classList.remove('active');
+                    if (watchesLink) watchesLink.classList.remove('active-menu-link');
+                    closedAny = true;
+                }
+                
+                if (collectionsMenu && collectionsMenu.classList.contains('active')) {
+                    collectionsMenu.classList.remove('active');
+                    if (collectionsLink) collectionsLink.classList.remove('active-menu-link');
+                    closedAny = true;
+                }
+                
+                if (closedAny) {
+                    nav.classList.remove('mega-active');
+                    document.body.style.overflow = ''; 
+                    if (typeof lenis !== 'undefined') lenis.start();
+                }
+            }
+        });
     });
 }
