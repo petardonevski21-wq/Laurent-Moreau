@@ -99,37 +99,26 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power3.out"
     });
 
-    // 2. Видеото се пушта само кога ќе влезе во екранот
+// 2. Видеото се пушта автоматски од HTML, тука само осигуруваме видливост
     const builtVideo = document.getElementById("built-video");
-    ScrollTrigger.create({
-        trigger: ".built-video-container",
-        start: "top 75%",
-        onEnter: () => {
-            // Веднаш го правиме видливо (opacity: 1), за да се гледа дури и ако мобилниот блокира autoplay
-            builtVideo.style.opacity = 1; 
-            
-            let playPromise = builtVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.log("Auto-play was prevented:", error);
-                });
-            }
-        }
-    });
-
-    // 3. Анимација на зголемување на видеото (Scale & Pin)
-    gsap.to(".built-video-inner", {
-        scrollTrigger: {
-            trigger: ".built-video-container",
-            start: "center center", // Започнува кога контејнерот ќе дојде на средина од екранот
-            end: "+=50%", // Времетраење на скролањето (простор за зголемување)
-            scrub: true, // Врзано директно за твоето движење на скролот
-            pin: true, // Го заклучува (pin) на место додека не заврши зголемувањето
-        },
-        width: "100%",
-        height: "100vh",
-        ease: "none"
-    });
+    if (builtVideo) {
+        builtVideo.style.opacity = 1; 
+    }
+// 3. Анимација на зголемување на видеото (Scale & Pin) - СЕ АКТИВИРА САМО НА ДЕСКТОП (> 1024px)
+    if (window.innerWidth > 1024) {
+        gsap.to(".built-video-inner", {
+            scrollTrigger: {
+                trigger: ".built-video-container",
+                start: "center center", // Започнува кога контејнерот ќе дојде на средина од екранот
+                end: "+=50%", // Времетраење на скролањето (простор за зголемување)
+                scrub: true, // Врзано директно за твоето движење на скролот
+                pin: true, // Го заклучува (pin) на место додека не заврши зголемувањето
+            },
+            width: "100%",
+            height: "100vh",
+            ease: "none"
+        });
+    }
 });
 
 // --- Контрола за 3D моделот (Pause/Play) ---
