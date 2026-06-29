@@ -604,9 +604,13 @@ body {
 /* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
 @media (max-width: 1024px) {
     
-    html, body {
-        /* ИЗБРИШАНО: overflow-x: hidden !important; - Ова беше главната пречка за GSAP анимацијата на телефон */
-        width: 100vw;
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
         max-width: 100%;
         position: relative;
     }
@@ -615,9 +619,12 @@ body {
     #bg-video {
         object-fit: cover;
         object-position: center;
+        /* Overfill in all directions so no black bars appear on any mobile ratio */
         width: 100%;
         height: 100vh;
-        transform: scale(1.05); 
+        min-width: 100%;
+        min-height: 100%;
+        transform: scale(1.12);
     }
 
     .hero-title {
@@ -679,7 +686,7 @@ body {
     .built-section { 
         padding-top: 10vh; 
         width: 100%;
-        /* ИЗБРИШАНО: overflow: hidden; - Ова беше втората пречка */
+        overflow: visible; /* Must NOT clip - lets GSAP pin spacer extend freely */
     }
     
     .built-title { 
@@ -689,12 +696,13 @@ body {
     
     .built-video-container {
         width: 100%;
-        height: 100vh; /* Потребно за GSAP анимацијата да има простор */
+        height: 100vh; /* Required space for the GSAP pin animation */
+        overflow: visible; /* Must NOT clip the pinned element */
     }
 
     .built-video-inner {
-        width: 80%; /* Започнува од 80% за да може анимацијата да го прошири до 100% */
-        height: 50vh; /* Започнува помало за да се зумира */
+        width: 85%; /* Starting smaller so the zoom-in is visible on mobile */
+        height: 48vh; /* Starting height before GSAP expands it */
     }
 
     /* 4. GRID СЕКЦИЈА - ПЕРФЕКТНО РАСПОРЕДЕНО СПОРЕД СЛИКАТА */

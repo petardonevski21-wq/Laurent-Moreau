@@ -345,7 +345,8 @@ nav {
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        gap: 1rem !important; 
+        gap: 1rem !important;
+        padding-right: 0.4rem;
     }
     
     .nav-right svg { 
@@ -411,7 +412,7 @@ nav {
         text-decoration: none;
         color: #000000;
         font-family: 'Lato', sans-serif;
-        font-size: 1.15rem; /* Намален фонт */
+        font-size: 0.95rem; /* Намален фонт */
         font-weight: 400;
         display: flex;
         justify-content: space-between;
@@ -423,7 +424,7 @@ nav {
     .mobile-link .arrow {
         font-weight: 300;
         font-family: sans-serif;
-        font-size: 1rem; /* Намалена стрелка */
+        font-size: 0.8rem; /* Намалена стрелка */
         color: #888;
     }
 
@@ -438,7 +439,7 @@ nav {
         text-decoration: none;
         color: #444444;
         font-family: 'Lato', sans-serif;
-        font-size: 0.9rem; /* Намален под-фонт */
+        font-size: 0.78rem; /* Намален под-фонт */
         font-weight: 400;
         display: flex;
         align-items: center;
