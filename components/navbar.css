@@ -444,23 +444,42 @@ nav {
         gap: 1rem;
     }
 
-.mobile-menu-bottom-img {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    width: 100%;
-    padding: 0 2rem 2.5rem 2rem;
-    margin-top: 2rem;
+    .mobile-menu-bottom-img {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 2rem 2.5rem 2rem;
+        margin-top: 2rem;
+        overflow: hidden;
+    }
+
+    .mobile-menu-bottom-img img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        height: 18vh;
+        max-height: 18vh;
+        object-fit: cover;
+        object-position: center;
+        flex-shrink: 0;
+    }
 }
-.mobile-menu-bottom-img img {
-    width: 100%;
-    height: auto;
-    max-height: 18vh;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
+
+/* --- Small screen heights: iPhone SE and similar (height ≤ 680px) --- */
+@media (max-width: 1024px) and (max-height: 680px) {
+    .mobile-menu-bottom-img {
+        gap: 0.8rem;
+        margin-top: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .mobile-menu-bottom-img img {
+        height: 13vh;
+        max-height: 13vh;
+    }
 }
 
 @media (max-width: 1024px) {
