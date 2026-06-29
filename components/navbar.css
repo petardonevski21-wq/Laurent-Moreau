@@ -104,7 +104,6 @@ nav {
     object-fit: contain;
     transition: filter 0.4s ease;
 }
-
 .logo h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -460,5 +459,31 @@ nav {
         object-fit: cover; 
         object-position: center;
         display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* 1. Перфектно центрирање по двете оски (го крева нагоре точно во линија со иконите) */
+    .navbar .logo {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important; /* Го позиционира точно на средина по висина */
+        transform: translate(-50%, -50%) !important; /* Го крева нагоре и го рамни со другите елементи */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 !important;
+    }
+    
+    /* 2. Големина на логото на мобилен */
+    .navbar .logo img {
+        height: 55px !important; /* Го зголемив уште малку за да изгледа моќно и пропорционално */
+        width: auto !important;
+    }
+
+    /* 3. Десните икони си остануваат залепени десно */
+    .navbar .nav-right {
+        margin-right: -25px !important;
+        padding-right: 0 !important;
     }
 }
