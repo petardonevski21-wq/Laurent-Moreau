@@ -7,10 +7,9 @@
     height: 40px; 
     position: relative;
     padding: 0; 
-    z-index: 1000; /* Држи ја навигацијата над мега-менито */
+    z-index: 1000; 
 }
 
-/* ТРИКОТ: Фрла бела позадина преку цел екран од горе кога ќе кликнеш, без да ги мрда линковите */
 .navbar::before {
     content: '';
     position: fixed;
@@ -30,10 +29,8 @@
     visibility: visible;
 }
 
-/* Менување на боите во црно кога ќе се кликне Watches */
 .navbar.mega-active .nav-link { color: #000000; }
 .navbar.mega-active .nav-link::after { background-color: #000000; }
-/* Линија под Watches кога е активно мега-менито */
 .navbar.mega-active .active-menu-link::after {
     transform: scaleX(1);
     transform-origin: left;
@@ -72,7 +69,6 @@ nav {
     transition: color 0.4s ease;
 }
 
-/* Ховер анимација (влегува од лево, излегува од десно) */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -91,7 +87,6 @@ nav {
     transform-origin: left; 
 }
 
-/* Лого */
 .logo {
     position: absolute;
     left: 50%;
@@ -121,7 +116,6 @@ nav {
     line-height: 1;
 }
 
-/* Десни икони */
 .nav-right {
     display: flex;
     gap: 1.5rem;
@@ -140,7 +134,6 @@ nav {
     opacity: 0.6;
 }
 
-/* --- Стил за белото мени на скрол --- */
 .navbar-white {
     position: fixed;
     font-weight: 200;
@@ -184,25 +177,25 @@ nav {
     filter: brightness(0); 
 }
 
-/* --- ДЕСКТОП МЕГА МЕНИ ЗА WATCHES (B&W Audemars Piguet Стил) --- */
+/* --- ДЕСКТОП МЕГА МЕНИ --- */
 .mega-menu {
-    position: fixed; /* СМЕНЕТО: Fixed за да се рашири до краевите на екранот */
-    top: 90px; /* СМЕНЕТО: Почнува точно под белата позадина */
+    position: fixed; 
+    top: 90px; 
     left: 0;
     width: 100%; 
-    background-color: #ffffff; /* Бела позадина */
-    color: #000000; /* Црни букви */
+    background-color: #ffffff;
+    color: #000000;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-30px); /* Анимација од горе надолу */
+    transform: translateY(-30px);
     transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 visibility 0.5s;
-    z-index: 999; /* СМЕНЕТО: Да биде одма под навигацијата */
+    z-index: 999;
     display: flex;
     justify-content: center;
-    padding: 4rem 5%; /* Скроз од лево до десно */
-    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Тенка линија на врвот */
+    padding: 4rem 5%;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
@@ -215,7 +208,7 @@ nav {
 .mega-menu-content {
     display: flex;
     width: 100%;
-    max-width: 100%; /* Користи ја целата широчина */
+    max-width: 100%;
     gap: 6rem;
 }
 
@@ -227,7 +220,7 @@ nav {
 
 .mega-menu-title {
     font-family: 'Lato', sans-serif;
-    font-size: 0.75rem; /* Помали букви */
+    font-size: 0.75rem; 
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #888888;
@@ -245,17 +238,17 @@ nav {
 }
 
 .mega-menu-links a {
-    color: #000000; /* Црни букви */
+    color: #000000; 
     text-decoration: none;
-    font-family: 'Lato', sans-serif; /* Почист, помодерен фонт */
-    font-size: 1.1rem; /* Намалени букви од левата страна */
+    font-family: 'Lato', sans-serif; 
+    font-size: 1.1rem; 
     font-weight: 400;
     transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
 }
 
 .mega-menu-links a:hover {
-    color: #777777; /* Сиво на ховер */
+    color: #777777; 
     transform: translateX(5px);
 }
 
@@ -271,7 +264,7 @@ nav {
     flex-direction: column;
     gap: 1rem;
     text-decoration: none;
-    color: #000000; /* Црни букви */
+    color: #000000; 
     flex: 1;
     transition: opacity 0.3s ease;
 }
@@ -300,10 +293,9 @@ nav {
 }
 
 .mega-menu-image-card:hover span {
-    border-color: #000000; /* Црна линија на ховер */
+    border-color: #000000;
 }
 
-/* --- КРИЕЊЕ НА МОБИЛНИТЕ ЕЛЕМЕНТИ НА ДЕСКТОП --- */
 .hamburger, .mobile-menu-overlay { 
     display: none; 
 }
@@ -312,14 +304,13 @@ nav {
 @media (max-width: 1024px) {
     .navbar, .navbar-white {
         padding: 0 1.2rem !important; 
-        height: 60px; /* Повеќе простор за дишење на навигацијата */
+        height: 60px; 
     }
     
     .nav-left nav, .nav-left .vertical-line, .mega-menu {
         display: none !important;
     }
 
-    /* Распоред: Бургер лево */
     .nav-left {
         flex: 1;
         display: flex;
@@ -332,14 +323,13 @@ nav {
         cursor: pointer;
         color: #ffffff;
         z-index: 10;
-        padding: 5px; /* За полесен клик со прст */
+        padding: 5px; 
     }
     
     .navbar-white .hamburger {
         color: #000000;
     }
 
-    /* Распоред: Лого перфектно на средина */
     .logo { 
         position: absolute;
         left: 50%;
@@ -348,22 +338,21 @@ nav {
         z-index: 10;
     }
     .logo img { 
-        height: 40px !important; /* Намалено за да не се преклопува со иконите */
+        height: 40px !important; 
     }
 
-    /* Распоред: Иконите десно (часовник, локација, срце) */
     .nav-right { 
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        gap: 0.8rem !important; /* Приближени за да ги собере сите 3 на мал екран */
+        gap: 1rem !important; 
     }
+    
     .nav-right svg { 
-        width: 22px !important; /* Намалени пропорционално за мобилен */
-        height: 22px !important; 
+        width: 26px !important; 
+        height: 26px !important; 
     }
 
-    /* --- OVERLAY МЕНИ ПРОФЕСИОНАЛЕН СТИЛ --- */
     .mobile-menu-overlay {
         display: flex;
         flex-direction: column;
@@ -376,9 +365,10 @@ nav {
         background-color: #ffffff;
         z-index: 99999;
         transform: translateY(-100%); 
-        transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); /* Премиум мазна транзиција */
+        transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1); 
         color: #000000;
         overflow-y: auto;
+        overflow-x: hidden; /* Заштита внатре во самото мени */
     }
 
     .mobile-menu-overlay.active {
@@ -391,7 +381,7 @@ nav {
         align-items: center;
         padding: 1.2rem;
         background: #ffffff;
-        border-bottom: 1px solid rgba(0,0,0,0.05); /* Суптилна линија за чист изглед */
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
     .close-menu {
@@ -413,14 +403,15 @@ nav {
         flex-direction: column;
         padding: 2.5rem 2rem;
         gap: 1.8rem;
-        flex-grow: 1; /* Ова автоматски ја турка сликата најдолу */
+        flex-grow: 1; 
     }
 
+    /* БУКВИТЕ СЕ НАМАЛЕНИ ОВДЕ */
     .mobile-link {
         text-decoration: none;
         color: #000000;
         font-family: 'Lato', sans-serif;
-        font-size: 1.4rem; /* Поелегантен, поголем фонт */
+        font-size: 1.15rem; /* Намален фонт */
         font-weight: 400;
         display: flex;
         justify-content: space-between;
@@ -432,7 +423,7 @@ nav {
     .mobile-link .arrow {
         font-weight: 300;
         font-family: sans-serif;
-        font-size: 1.2rem;
+        font-size: 1rem; /* Намалена стрелка */
         color: #888;
     }
 
@@ -447,24 +438,25 @@ nav {
         text-decoration: none;
         color: #444444;
         font-family: 'Lato', sans-serif;
-        font-size: 1rem;
+        font-size: 0.9rem; /* Намален под-фонт */
         font-weight: 400;
         display: flex;
         align-items: center;
         gap: 1rem;
     }
 
-    /* --- ОПРАВЕНА СЛИКА ВО МЕНИТО --- */
     .mobile-menu-bottom-img {
         width: 100%;
         padding: 0 2rem 2.5rem 2rem;
-        margin-top: auto; /* Секогаш ја лепи за дното на екранот */
+        margin-top: auto;
     }
 
     .mobile-menu-bottom-img img {
         width: 100%;
-        height: 250px;
-        object-fit: cover; /* Перфектно ја сече без да се изобличи (развлече) */
+        height: auto;
+        max-height: 25vh; 
+        aspect-ratio: 16 / 9; 
+        object-fit: cover; 
         object-position: center;
         display: block;
     }
