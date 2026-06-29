@@ -404,7 +404,7 @@ body {
     pointer-events: none; /* Спречува текстот да го блокира hover ефектот на сликата */
 }
 
-/* На втората секција kaj 6 sliki so se zatemni gi malce da se gleda tekstot
+/* На втората секција kaj 6 sliki so се zatemni gi malce da се гледа tekstot
    (drugo nisto ama nisto ne menuvaj) */
 .grid-item::after {
     content: '';
@@ -602,11 +602,10 @@ body {
 }
 
 /* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
-/* --- МОБИЛЕН РЕСПОНЗИВ ЗА СТРАНАТА (До 1024px) --- */
 @media (max-width: 1024px) {
     
     html, body {
-        overflow-x: hidden !important;
+        /* ИЗБРИШАНО: overflow-x: hidden !important; - Ова беше главната пречка за GSAP анимацијата на телефон */
         width: 100vw;
         max-width: 100%;
         position: relative;
@@ -680,7 +679,7 @@ body {
     .built-section { 
         padding-top: 10vh; 
         width: 100%;
-        overflow: hidden;
+        /* ИЗБРИШАНО: overflow: hidden; - Ова беше втората пречка */
     }
     
     .built-title { 

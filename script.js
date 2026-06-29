@@ -105,12 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
         trigger: ".built-video-container",
         start: "top 75%",
         onEnter: () => {
-            // Обид за пуштање на видеото и појавување (fade-in) преку сивата позадина
+            // Веднаш го правиме видливо (opacity: 1), за да се гледа дури и ако мобилниот блокира autoplay
+            builtVideo.style.opacity = 1; 
+            
             let playPromise = builtVideo.play();
             if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    builtVideo.style.opacity = 1;
-                }).catch(error => {
+                playPromise.catch(error => {
                     console.log("Auto-play was prevented:", error);
                 });
             }
