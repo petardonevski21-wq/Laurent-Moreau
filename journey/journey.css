@@ -23,13 +23,9 @@ body {
     padding: 2.5rem 4rem; 
 }
 
-/* Stiliziranje na glavnata sekcija so slikata */
+/* Stiliziranje na glavnata sekcija so slikata (сега со видеа) */
 .story-section {
     position: relative;
-    background-image: url('../journey/journeysliki/journey.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -38,13 +34,37 @@ body {
     overflow: hidden;
 }
 
+/* Стил за видеата */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Мазна транзиција кога се менуваат видеата */
+}
+
+.bg-video.active {
+    opacity: 1;
+    z-index: -1;
+}
+
 .story-section::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.25); /* затемнување */
     box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5); /* внатрешна сенка */
+    z-index: 0;
 }
+
+.story-content {
+    z-index: 1;
+}
+
 /* Stiliziranje na tekstot */
 .story-content h2 {
     font-family: 'Lato', sans-serif;
@@ -55,8 +75,6 @@ body {
     margin: 0;
     text-align: center;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-
     max-width: 500px; /* прилагоди по потреба */
     margin: 0 auto;
 }
-
