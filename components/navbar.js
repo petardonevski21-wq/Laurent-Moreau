@@ -1,7 +1,25 @@
-fetch("components/navbar.html")
+// Proveruvame dali sme vo 'journey' papkata preku URL-to
+const isJourneyPage = window.location.pathname.includes('/journey/');
+
+// Ja podesuvame patekata do HTML fajlot vo zavisnost od toa kade sme
+const navbarUrl = isJourneyPage ? "../components/navbar.html" : "components/navbar.html";
+
+fetch(navbarUrl)
   .then(res => res.text())
   .then(data => {
     document.getElementById("navbar").innerHTML = data;
+
+    // Ako sme vo journey, gi popravame patekite na slikite vo menito
+    if (isJourneyPage) {
+        const navbarImages = document.querySelectorAll('#navbar img');
+        navbarImages.forEach(img => {
+            let currentSrc = img.getAttribute('src');
+            // Go pretvorame './sliki/' vo '../sliki/' za da izleze od papkata
+            if (currentSrc && currentSrc.startsWith('./')) {
+                img.setAttribute('src', '.' + currentSrc);
+            }
+        });
+    }
 
     const originalNavbar = document.querySelector('.navbar');
     
@@ -52,33 +70,34 @@ function setupMobileMenu() {
         }
     });
 }
+
 function setupMegaMenu() {
     const navbars = document.querySelectorAll('.navbar, .navbar-white');
     
     navbars.forEach(nav => {
-        // Елементи за Watches
+        // Elementi za Watches
         const watchesLink = nav.querySelector('.js-watches-link');
         const watchesMenu = nav.querySelector('.js-mega-menu'); 
         
-        // Елементи за Collections
+        // Elementi za Collections
         const collectionsLink = nav.querySelector('.js-collections-link');
         const collectionsMenu = nav.querySelector('.js-mega-menu-collections'); 
         
-        // Универзална функција за контрола
+        // Univerzalna funkcija za kontrola
         function handleMenuClick(e, clickedLink, menuToToggle, otherLink, otherMenu) {
             e.preventDefault();
             
-            // Ако другото мени е отворено, затвори го веднаш
+            // Ako drugoto meni e otvoreno, zatvori go vednas
             if (otherMenu && otherMenu.classList.contains('active')) {
                 otherMenu.classList.remove('active');
                 if (otherLink) otherLink.classList.remove('active-menu-link');
             }
             
-            // Отвори го или затвори го кликнатото мени
+            // Otvori go ili zatvori go kliknatoto meni
             const isActive = menuToToggle.classList.toggle('active');
             clickedLink.classList.toggle('active-menu-link', isActive);
             
-            // Контрола на позадината и скролањето
+            // Kontrola na pozadinata i skrolanjeto
             if (isActive) {
                 nav.classList.add('mega-active');
                 document.body.style.overflow = 'hidden'; 
@@ -90,17 +109,17 @@ function setupMegaMenu() {
             }
         }
 
-        // Клик на Watches
+        // Klik na Watches
         if (watchesLink && watchesMenu) {
             watchesLink.addEventListener('click', (e) => handleMenuClick(e, watchesLink, watchesMenu, collectionsLink, collectionsMenu));
         }
         
-        // Клик на Collections
+        // Klik na Collections
         if (collectionsLink && collectionsMenu) {
             collectionsLink.addEventListener('click', (e) => handleMenuClick(e, collectionsLink, collectionsMenu, watchesLink, watchesMenu));
         }
         
-        // Гасење на менијата ако се кликне некаде надвор
+        // Gasenje na menijata ako se klikne nekade nadvor
         document.addEventListener('click', (e) => {
             if (!nav.contains(e.target)) {
                 let closedAny = false;
