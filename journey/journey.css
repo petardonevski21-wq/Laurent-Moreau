@@ -47,21 +47,16 @@ body {
 }
 /* Stiliziranje na tekstot */
 .story-content h2 {
-font-family: 'Lato', sans-serif;
-    font-size: 3.5rem; /* Golem i vpecatliv tekst (okolu 72px) */
-    font-weight: 400; 
-    color: #ffffff; /* Bela boja */
+    font-family: 'Lato', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #fff;
     letter-spacing: 1px;
     margin: 0;
-    text-align: center; /* Ako tekstot padne vo dva reda, ke bide na sredina */
-    /* Blaga temna senka pozadi bukvite za da bidat citlivi i vrz svetli delovi od slikata */
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5); 
+    text-align: center;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+
+    max-width: 500px; /* прилагоди по потреба */
+    margin: 0 auto;
 }
 
-/* Responzivnost: Go namaluvame tekstot za na mobilni telefoni za da ne izleze od ekranot */
-@media (max-width: 768px) {
-    .story-content h2 {
-        font-size: 2.5rem; 
-        padding: 0 20px; /* Malku prostor od stranite */
-    }
-}
