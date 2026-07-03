@@ -145,3 +145,10 @@ function setupMegaMenu() {
         });
     });
 }
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.js-mobile-menu').classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
