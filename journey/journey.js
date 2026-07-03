@@ -128,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // footer
-    // Вчитување на футерот
+// Вчитување на футерот
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('./footer/footer.html')
+    fetch('../footer/footer.html') /* <-- ДОДАДЕНО Е ../ */
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
