@@ -87,7 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
         allSlides[sliderIndex + 1].classList.add("active-slide");
         indicators[sliderIndex].classList.add("active");
 
-        const moveAmount = (sliderIndex + 1) * 60.5;
+        // Динамична пресметка на ширината на слајдот + gap за да работи респонзивно
+        let slideWidthVW = 60; // Дефолт за десктоп
+        let gapVW = 0.5;       // Дефолт за десктоп
+
+        if (window.innerWidth <= 768) {
+            slideWidthVW = 85; // Идентично со CSS: min-width: 85vw
+            gapVW = 2;         // Идентично со CSS: gap: 2vw
+        } else if (window.innerWidth <= 1024) {
+            slideWidthVW = 70; // Идентично со CSS: min-width: 70vw
+            gapVW = 0.5;
+        }
+
+        const moveAmount = (sliderIndex + 1) * (slideWidthVW + gapVW);
         track.style.transform = `translateX(-${moveAmount}vw)`;
     }
 
@@ -124,6 +136,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         track.style.transition = "";
     }, 50);
+
+    // Додадено: Рекалкулирање при resize (вклучувајќи ротирање на мобилен уред)
+    window.addEventListener("resize", () => {
+        track.style.transition = "none";
+        updateSlider();
+        setTimeout(() => {
+            track.style.transition = "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)";
+        }, 50);
+    });
 });
 
 

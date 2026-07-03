@@ -270,3 +270,106 @@ body {
     background-color: #000000;
     width: 50px;
 }
+
+
+
+
+/* --- РЕСПОНЗИВНОСТ (ТАБЛЕТИ И МОБИЛНИ) --- */
+
+/* Таблети (до 1024px) */
+@media (max-width: 1024px) {
+    #navbar {
+        padding: 1.5rem 2rem; /* Помал падинг за таблети */
+    }
+
+    .story-content h2 {
+        font-size: 2.8rem;
+        max-width: 80%;
+    }
+
+    .slide {
+        min-width: 70vw; /* Пошироки слајдови за таблет */
+        height: 65vh;
+    }
+
+    .slider-track {
+        padding: 0 15vw;
+    }
+}
+
+/* Мобилни телефони (до 768px) */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 1rem; 
+    }
+
+    .story-content h2 {
+        font-size: 2rem;
+        max-width: 90%;
+    }
+
+    /* Текст секции - центрирање за подобра читливост */
+    .scrolling-text-wrapper, 
+    .scrolling-text-wrapper.left-align {
+        padding: 0 1rem;
+        justify-content: center; 
+    }
+
+    .text-content, 
+    .text-content.left-align-text {
+        text-align: center; 
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+
+    .text-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .text-content p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Слајдер секција */
+    .slide {
+        min-width: 85vw; /* Оптимална ширина за мобилен */
+        height: 55vh;
+    }
+
+    .slider-track {
+        padding: 0 7.5vw; 
+        gap: 2vw; /* Повеќе простор меѓу слајдовите на мобилен */
+    }
+
+    .slide-title {
+        font-size: 1.2rem;
+        bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    /* Контроли за слајдерот */
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .prev-btn { left: 2%; }
+    .next-btn { right: 2%; }
+
+    .slider-indicators {
+        bottom: 3%;
+        gap: 10px;
+    }
+
+    .indicator {
+        width: 25px;
+    }
+    
+    .indicator.active {
+        width: 40px;
+    }
+}
