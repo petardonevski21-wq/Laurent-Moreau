@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal</title>
-     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../components/navbar.css" defer>
     <link rel="stylesheet" href="journey.css">
+    <link rel="stylesheet" href="./footer/footer.css">
     <script src="../components/navbar.js" defer></script> 
     <script src="journey.js" defer></script>
 </head>
 <body>
     <div id="navbar"></div>
     
+    <!-- ПРВА СЕКЦИЈА: ВИДЕА -->
     <section class="story-section">
         <video class="bg-video active" src="./prvo.mp4" autoplay muted playsinline></video>
         <video class="bg-video" src="./vtorovid.mp4" muted playsinline></video>
@@ -23,21 +25,78 @@
         </div>
     </section>
 
-<section class="second-section">
-        <!-- Сликата што се заклучува и заматува -->
+    <!-- ВТОРА СЕКЦИЈА: САМО ЗАТЕМНУВАЊЕ И ТЕКСТ СО НАСЛОВ -->
+    <section class="second-section">
         <div class="sticky-image-wrapper">
             <img src="./journeysliki/about.png" alt="Laurent Moreau" id="scrollImage">
-            <div class="overlay-dark"></div> <!-- Темна обвивка за подобра читливост -->
+            <div class="overlay-dark"></div> 
         </div>
         
-        <!-- Текстот што излегува од долу -->
         <div class="scrolling-text-wrapper">
             <div class="text-content">
+                <h2>The Vision of Elegance</h2>
                 <p>At Laurent Moreau, every timepiece begins with a vision of timeless elegance. Inspired by the rich tradition of Swiss watchmaking and refined through contemporary design, each watch is crafted with meticulous attention to detail. From the selection of premium materials to the precision of every movement, our commitment is to create more than a watch—it is a statement of character, craftsmanship, and enduring sophistication.</p>
                 <p>Every Laurent Moreau watch is designed to accompany life's most meaningful moments. We believe that true luxury is found not only in exceptional quality but also in the stories a timepiece carries through generations. With uncompromising precision and a passion for excellence, we create watches that celebrate the art of time itself.</p>
             </div>
         </div>
     </section>
 
+
+    <!-- tretasekcija -->
+<section class="slider-section">
+    <button class="slider-btn prev-btn">&#10094;</button>
+    <button class="slider-btn next-btn">&#10095;</button>
+
+    <div class="slider-container">
+        <div class="slider-track">
+            <div class="slide active-slide">
+                <img src="./journeysliki/history.jpg" alt="Watch 1">
+                <div class="slide-title">The History of Laurent Moreau</div>
+            </div>
+            <div class="slide">
+                <img src="./journeysliki/journey.png" alt="Watch 2">
+                <div class="slide-title">The Heritage Edition</div>
+            </div>
+            <div class="slide">
+                <img src="./journeysliki/craftsmanship.jpg" alt="Watch 3">
+                <div class="slide-title">Craftsmanship</div>
+            </div>
+            <div class="slide">
+                <video src="./video.mp4" autoplay muted loop playsinline></video>
+                <div class="slide-title">Legacy</div>
+            </div>
+            <div class="slide">
+                <img src="./journeysliki/The Workshop.png" alt="Watch 4">
+                <div class="slide-title">The Workshop</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-indicators">
+        <span class="indicator active" data-index="0"></span>
+        <span class="indicator" data-index="1"></span>
+        <span class="indicator" data-index="2"></span>
+        <span class="indicator" data-index="3"></span>
+        <span class="indicator" data-index="4"></span>
+    </div>
+</section>
+
+    <!-- ПОСЛЕДНА СЕКЦИЈА: ИСТА КАКО ВТОРАТА, СО ТЕКСТ ЛЕВО -->
+    <section class="second-section">
+        <div class="sticky-image-wrapper">
+            <img src="./journeysliki/posledna.png" alt="Laurent Moreau" id="scrollImage2">
+            <div class="overlay-dark"></div> 
+        </div>
+        
+        <div class="scrolling-text-wrapper left-align">
+            <div class="text-content left-align-text">
+                <h2>Where Every Story Begins</h2>
+                <p>Every great timepiece begins long before the first gear is placed. It starts with an idea—a quiet pursuit of perfection, where tradition meets imagination and every detail has a purpose. At Laurent Moreau, we embrace the philosophy that true craftsmanship cannot be rushed. Each watch is carefully shaped through countless hours of precision, patience, and dedication, transforming the finest materials into something designed to outlive generations.
+                We create more than instruments that measure time—we create companions for life's defining moments. From milestones worth celebrating to memories yet to be made, every Laurent Moreau timepiece is crafted to become part of a personal legacy. Guided by timeless design, exceptional engineering, and an unwavering commitment to excellence, our watches are made for those who appreciate that the greatest luxury is not simply owning time, but wearing a story that continues with every passing second.</p>
+                <p>Behind every Laurent Moreau creation lies a relentless pursuit of balance—where innovation respects tradition, and every component serves a purpose beyond function. Our artisans believe that perfection is achieved through countless subtle refinements, invisible to many yet appreciated by those who understand true craftsmanship. The result is a collection of timepieces defined not by trends, but by enduring elegance, exceptional precision, and a legacy destined to be passed from one generation to the next.</p>
+            </div>
+        </div>
+    </section>
+    <div id="footer-placeholder"></div>
 </body> 
 </html>

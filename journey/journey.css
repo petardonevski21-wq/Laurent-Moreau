@@ -9,21 +9,18 @@ body {
     font-family: 'Lato', sans-serif;
     color: #ffffff;
     height: 100vh;
-    overflow-x: hidden; /* Мал додаток за да не ти се појави случаен скрол лево-десно */
+    overflow-x: hidden; 
 }
 
-/* Go vleceme menito vrz slikata da bide vidlivo i prozirno */
 #navbar {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    /* Го додаваме истиот простор како на главната страна за да биде 100% идентично */
     padding: 2.5rem 4rem; 
 }
 
-/* Stiliziranje na glavnata sekcija so slikata (сега со видеа) */
 .story-section {
     position: relative;
     height: 100vh;
@@ -34,7 +31,6 @@ body {
     overflow: hidden;
 }
 
-/* Стил за видеата */
 .bg-video {
     position: absolute;
     top: 0;
@@ -44,7 +40,7 @@ body {
     object-fit: cover;
     z-index: -2;
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Мазна транзиција кога се менуваат видеата */
+    transition: opacity 1s ease-in-out; 
 }
 
 .bg-video.active {
@@ -56,8 +52,8 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.25); /* затемнување */
-    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5); /* внатрешна сенка */
+    background: rgba(0, 0, 0, 0.25); 
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5); 
     z-index: 0;
 }
 
@@ -65,7 +61,6 @@ body {
     z-index: 1;
 }
 
-/* Stiliziranje na tekstot */
 .story-content h2 {
     font-family: 'Lato', sans-serif;
     font-size: 3.5rem;
@@ -75,35 +70,32 @@ body {
     margin: 0;
     text-align: center;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-    max-width: 500px; /* прилагоди по потреба */
+    max-width: 500px; 
     margin: 0 auto;
 }
 
-/* ВТОРА СЕКЦИЈА - ЦЕЛ ЕКРАН */
 .second-section {
     position: relative;
-    height: 200vh; /* Правиме секцијата да е 2 екрани висока за да имаме простор за скролање */
-    background-color: #000; /* Црна позадина за луксузен транзициски ефект */
+    height: 200vh; 
+    background-color: #000; 
 }
 
-/* Контејнерот за сликата што стои во место */
 .sticky-image-wrapper {
     position: sticky;
     top: 0;
     width: 100%;
-    height: 100vh; /* Зазема цел екран */
+    height: 100vh; 
     overflow: hidden;
     z-index: 1;
 }
 
-#scrollImage {
+#scrollImage, #scrollImage2 {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Сликата ќе се развлече перфектно без да се деформира */
-    transition: filter 0.1s ease-out; /* Мазно заматување */
+    object-fit: cover; 
+    transition: filter 0.1s ease-out; 
 }
 
-/* Темен слој над сликата (го контролираме преку JS при скрол) */
 .overlay-dark {
     position: absolute;
     top: 0; 
@@ -115,23 +107,41 @@ body {
     transition: background-color 0.1s ease-out;
 }
 
-/* Контејнерот за текстот */
 .scrolling-text-wrapper {
     position: relative;
     z-index: 3;
-    height: 80vh; /* Висок 1 екран */
+    height: 80vh; 
     display: flex;
-    align-items: center; /* Центрирано вертикално */
-    justify-content: center; /* Центрирано хоризонтално */
+    align-items: center; 
+    justify-content: center; 
 }
 
-/* Самиот текст */
+.scrolling-text-wrapper.left-align {
+    justify-content: flex-start;
+    padding-left: 10vw; 
+}
+
 .text-content {
     max-width: 700px;
     text-align: center;
-    color: #ffffff; /* Бел текст за луксузен контраст */
+    color: #ffffff; 
     padding: 0 2rem;
-    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8); /* Јака сенка за да се чита супер врз сликата */
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8); 
+}
+
+/* СТИЛ ЗА НОВИОТ БОЛДИРАН НАСЛОВ ПРЕД ТЕКСТОТ */
+.text-content h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.text-content.left-align-text {
+    text-align: left;
+    max-width: 750px; 
 }
 
 .text-content p {
@@ -139,4 +149,124 @@ body {
     font-size: 1.3rem;
     line-height: 1.8;
     margin-bottom: 2rem;
+}
+
+.slider-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    padding: 0 20vw; 
+    gap: 0.5vw; 
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    align-items: center;
+}
+
+.slide {
+    min-width: 60vw;
+    height: 75vh;
+    position: relative;
+    transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.5; 
+    overflow: hidden;
+      opacity: 1;
+}
+
+.slide img, .slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    pointer-events: none;
+}
+
+.slide-title {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.3s;
+}
+
+.slide.active-slide .slide-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.prev-btn { left: 4%; }
+.next-btn { right: 4%; }
+
+.slider-indicators {
+    position: absolute;
+    bottom: 5%;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 35px;
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.indicator.active {
+    background-color: #000000;
+    width: 50px;
 }
