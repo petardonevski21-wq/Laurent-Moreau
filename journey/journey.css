@@ -78,3 +78,65 @@ body {
     max-width: 500px; /* прилагоди по потреба */
     margin: 0 auto;
 }
+
+/* ВТОРА СЕКЦИЈА - ЦЕЛ ЕКРАН */
+.second-section {
+    position: relative;
+    height: 200vh; /* Правиме секцијата да е 2 екрани висока за да имаме простор за скролање */
+    background-color: #000; /* Црна позадина за луксузен транзициски ефект */
+}
+
+/* Контејнерот за сликата што стои во место */
+.sticky-image-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh; /* Зазема цел екран */
+    overflow: hidden;
+    z-index: 1;
+}
+
+#scrollImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Сликата ќе се развлече перфектно без да се деформира */
+    transition: filter 0.1s ease-out; /* Мазно заматување */
+}
+
+/* Темен слој над сликата (го контролираме преку JS при скрол) */
+.overlay-dark {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 2;
+    transition: background-color 0.1s ease-out;
+}
+
+/* Контејнерот за текстот */
+.scrolling-text-wrapper {
+    position: relative;
+    z-index: 3;
+    height: 80vh; /* Висок 1 екран */
+    display: flex;
+    align-items: center; /* Центрирано вертикално */
+    justify-content: center; /* Центрирано хоризонтално */
+}
+
+/* Самиот текст */
+.text-content {
+    max-width: 700px;
+    text-align: center;
+    color: #ffffff; /* Бел текст за луксузен контраст */
+    padding: 0 2rem;
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8); /* Јака сенка за да се чита супер врз сликата */
+}
+
+.text-content p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
