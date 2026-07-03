@@ -159,3 +159,25 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error('Грешка при вчитување на футерот:', error));
 });
 // footer
+
+
+function updateSlider() {
+    allSlides.forEach(slide => slide.classList.remove("active-slide"));
+    indicators.forEach(ind => ind.classList.remove("active"));
+
+    allSlides[sliderIndex + 1].classList.add("active-slide");
+    indicators[sliderIndex].classList.add("active");
+
+    // Ако е десктоп (> 1024px), користи ја оригиналната вредност (60.5)
+    // Ако е мобилен/таблет, користи ги новите вредности
+    let moveAmount;
+    if (window.innerWidth > 1024) {
+        moveAmount = (sliderIndex + 1) * 60.5;
+    } else if (window.innerWidth <= 768) {
+        moveAmount = (sliderIndex + 1) * 87; // Пресметано за мобилен
+    } else {
+        moveAmount = (sliderIndex + 1) * 70.5; // За таблети
+    }
+
+    track.style.transform = `translateX(-${moveAmount}vw)`;
+}

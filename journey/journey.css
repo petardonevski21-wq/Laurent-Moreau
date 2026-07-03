@@ -373,3 +373,11 @@ body {
         width: 40px;
     }
 }
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
