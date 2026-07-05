@@ -292,3 +292,151 @@ body, html {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
+
+
+
+/* ======================================================
+   МОБИЛНА И ТАБЛЕТ ВЕРЗИЈА (до 1024px)
+   ====================================================== */
+
+.mobile-filter-btn {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .watch-page-container {
+        padding-top: 100px; 
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .search-icon {
+        display: none !important;
+    }
+
+    .search-container {
+        margin-bottom: 1.5rem;
+    }
+
+    .content-split {
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 20px;
+    }
+
+    /* --- СТИЛ ЗА КОПЧЕТО "ФИЛТРИ" --- */
+    .mobile-filter-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        font-family: 'Lato', sans-serif;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        order: 1; 
+        border-radius: 4px;
+    }
+
+    /* --- ФИЛТРИ (Осигурани против багови со скролање) --- */
+    .filters-scroll-area {
+        display: none; 
+        width: 100%;
+        height: auto !important; /* Спречува баг со скролање */
+        overflow: visible !important; /* Спречува скривање на содржината */
+        position: static; 
+        padding-left: 0;
+        border-left: none;
+        order: 2; 
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f9f9f9; 
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    }
+
+    .filters-scroll-area.active {
+        display: block; 
+    }
+
+    .filter-group {
+        margin-bottom: 25px; 
+    }
+
+    /* --- ЧАСОВНИЦИ --- */
+    .watches-scroll-area {
+        width: 100%;
+        padding-right: 0;
+        order: 3; 
+    }
+
+    .watches-grid {
+        gap: 20px; /* Малку повеќе простор меѓу поголемите картички */
+    }
+
+    /* --- ЗГОЛЕМЕНИ КАРТИЧКИ --- */
+    .watch-card {
+        height: 340px; /* Зголемено */
+        flex-direction: column; 
+        justify-content: flex-end; 
+        padding: 15px;
+    }
+
+    .watch-image-container {
+        justify-content: center; 
+        align-items: center; 
+        padding-right: 0;
+        padding-bottom: 40px; 
+    }
+
+    .watch-image-container img {
+        width: auto;
+        max-width: 95%; /* Зголемена слика */
+        height: 75%; /* Зголемена слика */
+    }
+
+    .watch-info {
+        max-width: 100%;
+        width: 100%;
+        text-align: center; 
+        margin-top: auto; 
+        padding: 12px 10px;
+        background: rgba(255, 255, 255, 0.95); 
+    }
+
+    .watch-info h3 {
+        font-size: 1.45rem; /* Зголемен наслов */
+    }
+
+    .watch-info p {
+        font-size: 0.95rem; /* Зголемен текст */
+    }
+}
+
+/* ======================================================
+   СПЕЦИФИЧНО ЗА ТЕЛЕФОНИ (до 768px)
+   ====================================================== */
+@media (max-width: 768px) {
+    .watches-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .watch-card {
+        height: 400px; /* Зголемено за уште поубав фокус на телефони */
+    }
+    
+    .watch-image-container img {
+        max-width: 80%; /* Зголемено */
+    }
+}

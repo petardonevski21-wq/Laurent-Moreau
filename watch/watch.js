@@ -66,3 +66,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const filtersArea = document.querySelector('.filters-scroll-area');
+    const contentSplit = document.querySelector('.content-split');
+
+    // Проверуваме дали постојат елементите и спречуваме дуплирање на копчето
+    if (filtersArea && contentSplit && !document.querySelector('.mobile-filter-btn')) {
+        const filterBtn = document.createElement('button');
+        filterBtn.className = 'mobile-filter-btn';
+        filterBtn.innerHTML = 'Filters <span class="toggle-icon">+</span>';
+        
+        // Го позиционираме копчето точно пред филтрите
+        contentSplit.insertBefore(filterBtn, filtersArea);
+        
+        // Логика за отворање/затворање на филтрите
+        filterBtn.addEventListener('click', () => {
+            filtersArea.classList.toggle('active');
+            const icon = filterBtn.querySelector('.toggle-icon');
+            icon.textContent = filtersArea.classList.contains('active') ? '-' : '+';
+        });
+    }
+});
