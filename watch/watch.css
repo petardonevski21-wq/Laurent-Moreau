@@ -1,0 +1,294 @@
+/* Основни ресетирања и отклучување на главниот скрол */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Lato', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Контејнер позициониран под навигацијата */
+.watch-page-container {
+    padding-top: 110px; 
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/* Наслов */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    letter-spacing: 1.5px;
+    color: #444;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    margin-top: 1.5rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 7.5rem;
+}
+
+/* Пребарување */
+.search-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    padding-left: 5px;
+    background: transparent;
+}
+
+.search-icon {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.search-icon:hover {
+    opacity: 0.6;
+}
+
+/* Сплит екран со природен скрол на страната */
+.content-split {
+    display: flex;
+    flex: 1;
+    padding-bottom: 40px;
+    align-items: flex-start; /* Важно за sticky филтрите */
+}
+
+/* Лев панел: Часовници (Природно се шири и скрола со страната) */
+.watches-scroll-area {
+    flex: 3.5;
+    padding-right: 50px;
+}
+
+/* Десен панел: Филтри (Sticky + свој независен скрол) */
+.filters-scroll-area {
+    flex: 1;
+    padding-left: 40px;
+    border-left: 1px solid #e0e0e0; 
+    position: sticky;
+    top: 120px; 
+    height: calc(100vh - 140px); 
+    overflow-y: auto;
+    overscroll-behavior: contain; /* Спречува скролање на цела страна кога си врз филтрите */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.filters-scroll-area::-webkit-scrollbar { 
+    width: 6px; 
+} 
+.filters-scroll-area::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.filters-scroll-area::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Мрежа за часовниците (2 колони) */
+.watches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Луксузен дизајн на картичка */
+.watch-card {
+    background-color: #f9f9f9;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Сменето за текстот да стои лево */
+    padding: 30px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    position: relative; /* ДОДАДЕНО: За сликата да се врзе за картичката */
+    overflow: hidden; /* ДОДАДЕНО: За сликата да не излегува од квадратот */
+}
+
+.watch-card:hover {
+    background-color: #f2f2f2;
+    transform: translateY(-4px);
+}
+/* Текстот од лева страна на картичката */
+/* Текстот од лева страна на картичката */
+.watch-info {
+    z-index: 2; /* ДОДАДЕНО: За да стои над сликата */
+    position: relative; 
+    background: rgba(255, 255, 255, 0.85); /* ДОДАДЕНО: За текстот да се чита совршено */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 75%;
+    backdrop-filter: blur(5px); /* ДОДАДЕНО: Елегантен ефект на стакло */
+}
+
+.watch-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.watch-info p {
+    font-size: 0.9rem;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+/* Контејнерот на сликата */
+.watch-image-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    /* Додадено за центрирање на намалената слика */
+    display: flex; 
+    justify-content: flex-end; /* Сликата ќе стои десно. Ако сакаш на средина, смени во 'center' */
+    align-items: center;
+    padding-right: 20px; /* Малку простор од десната страна */
+}
+
+.watch-image-container img {
+    width: 55%; /* ОВДЕ ЈА НАМАЛУВАШ: Пробај со 40%, 50%, 60% додека не ти се допадне */
+    height: 80%;
+    object-fit: contain; /* Спречува зумирање и сечење на сликата */
+}
+
+/* --- ДИЗАЈН НА ФИЛТРИТЕ (Според сликата) --- */
+.filter-group {
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-header h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.filter-header .toggle-icon {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #000;
+    line-height: 1;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Custom Checkbox & Radio */
+.custom-label {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #000;
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+}
+
+.custom-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Радио копчиња за Sort by */
+.radio-mark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.custom-label input[type="radio"]:checked ~ .radio-mark {
+    border-color: #2b6d51; /* Темно зелената од сликата */
+}
+
+.custom-label input[type="radio"]:checked ~ .radio-mark::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #2b6d51;
+    border-radius: 50%;
+}
+
+.custom-label input[type="radio"]:checked ~ .label-text.featured-text {
+    color: #2b6d51;
+}
+
+/* Чекбокс копчиња */
+.check-mark {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.custom-label input[type="checkbox"]:checked ~ .check-mark {
+    background-color: #000;
+}
+
+.custom-label input[type="checkbox"]:checked ~ .check-mark::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}

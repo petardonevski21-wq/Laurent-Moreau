@@ -1,8 +1,12 @@
-// Proveruvame dali sme vo 'journey' papkata preku URL-to
-const isJourneyPage = window.location.pathname.includes('/journey/');
+// Proveruvame dali sme vo podpapka (journey, watch, itn.)
+const isSubfolder =
+    window.location.pathname.includes('/journey/') ||
+    window.location.pathname.includes('/watch/');
 
 // Ja podesuvame patekata do HTML fajlot vo zavisnost od toa kade sme
-const navbarUrl = isJourneyPage ? "../components/navbar.html" : "components/navbar.html";
+const navbarUrl = isSubfolder
+    ? "../components/navbar.html"
+    : "components/navbar.html";
 
 fetch(navbarUrl)
   .then(res => res.text())
@@ -10,7 +14,7 @@ fetch(navbarUrl)
     document.getElementById("navbar").innerHTML = data;
 
     // Ako sme vo journey, gi popravame patekite na slikite vo menito
-    if (isJourneyPage) {
+if (isSubfolder) {
         const navbarImages = document.querySelectorAll('#navbar img');
         navbarImages.forEach(img => {
             let currentSrc = img.getAttribute('src');
@@ -28,19 +32,34 @@ fetch(navbarUrl)
         whiteNavbar.classList.add('navbar-white');
         document.body.appendChild(whiteNavbar);
 
-        let lastScroll = window.scrollY;
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
-            if (currentScroll <= 50) {
-                whiteNavbar.classList.remove('show');
-            } else if (currentScroll > lastScroll) {
-                whiteNavbar.classList.remove('show');
-            } else if (currentScroll < lastScroll) {
-                whiteNavbar.classList.add('show');
-            }
-            lastScroll = currentScroll;
-        });
+        // Na watch stranata prikazuvaj go samo beliot navbar
+if (window.location.pathname.includes('/watch/')) {
+    originalNavbar.style.display = 'none';
+    whiteNavbar.classList.add('show');
+}
+
+// Ako sme na watch, prikazi go samo beliot navbar
+if (window.location.pathname.includes('/watch/')) {
+    originalNavbar.style.display = 'none';
+    whiteNavbar.classList.add('show');
+} else {
+    let lastScroll = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.scrollY;
+
+        if (currentScroll <= 50) {
+            whiteNavbar.classList.remove('show');
+        } else if (currentScroll > lastScroll) {
+            whiteNavbar.classList.remove('show');
+        } else if (currentScroll < lastScroll) {
+            whiteNavbar.classList.add('show');
+        }
+
+        lastScroll = currentScroll;
+    });
+}
         
         setupMobileMenu();
         setupMegaMenu();

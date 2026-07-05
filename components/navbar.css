@@ -124,12 +124,18 @@ nav {
     z-index: 5;
 }
 
+.nav-right a, .nav-right svg {
+    color: inherit; 
+    text-decoration: none; 
+}
+
 .nav-right svg {
     cursor: pointer;
     transition: opacity 0.3s ease, color 0.4s ease, stroke 0.4s ease;
+    display: block; /* Спречува a href да создава чуден простор околу иконата */
 }
 
-.nav-right svg:hover {
+.nav-right svg:hover, .nav-right a:hover svg {
     opacity: 0.6;
 }
 

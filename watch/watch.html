@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Watches - Laurent Moreau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../components/navbar.css">
+    <link rel="stylesheet" href="watch.css">
+    
+    <script src="../components/navbar.js" defer></script>
+    <script src="watch.js" defer></script>
+</head>
+<body>
+    
+    <div id="navbar"></div>
+
+    <main class="watch-page-container">
+        <header class="page-header">
+            <span class="brand-subtitle">Laurent-Moreau</span>
+            <h1 class="page-title">ALL WATCHES</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" placeholder="Find your watch" class="search-input">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+
+        <div class="content-split">
+            
+            <section class="watches-scroll-area">
+                <div class="watches-grid" id="watchesGrid">
+                    </div>
+            </section>
+
+            <aside class="filters-scroll-area">
+                <div class="filters-content">
+                    
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h3>Sort by</h3>
+                            <span class="toggle-icon">-</span>
+                        </div>
+                        <div class="filter-options">
+                            <label class="custom-label">
+                                <input type="radio" name="sort" checked>
+                                <span class="radio-mark"></span>
+                                <span class="label-text featured-text">Featured</span>
+                            </label>
+                            <label class="custom-label">
+                                <input type="radio" name="sort">
+                                <span class="radio-mark"></span>
+                                <span class="label-text">Price low to high</span>
+                            </label>
+                            <label class="custom-label">
+                                <input type="radio" name="sort">
+                                <span class="radio-mark"></span>
+                                <span class="label-text">Price high to low</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h3>New models</h3>
+                            <span class="toggle-icon">-</span>
+                        </div>
+                        <div class="filter-options">
+                            <label class="custom-label">
+                                <input type="checkbox">
+                                <span class="check-mark"></span>
+                                <span class="label-text">New models 2026</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h3>Collection</h3>
+                            <span class="toggle-icon">-</span>
+                        </div>
+                        <div class="filter-options">
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Air-King</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Cosmograph Daytona</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Datejust</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Lady-Datejust</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Day-Date</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Deepsea</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h3>Material</h3>
+                            <span class="toggle-icon">-</span>
+                        </div>
+                        <div class="filter-options">
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Oystersteel</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Yellow Gold</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">White Gold</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Everose Gold</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Platinum</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-header">
+                            <h3>Dial Color</h3>
+                            <span class="toggle-icon">-</span>
+                        </div>
+                        <div class="filter-options">
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Black</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">White</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Blue</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Silver</span></label>
+                            <label class="custom-label"><input type="checkbox"><span class="check-mark"></span><span class="label-text">Green</span></label>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+</body>
+</html>
