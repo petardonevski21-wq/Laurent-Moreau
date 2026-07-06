@@ -41,9 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
         { name: "Summer Breeze", desc: "White Ceramic", img: "./sliki/pet.jpg" },
         { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/ses.jpg" },
         { name: "Tourbillon Elite", desc: "Platinum Edition", img: "./sliki/sedum.jpg"  },
-            { name: "Summer Breeze", desc: "White Ceramic", img: "./sliki/osum.jpg"  },
-            { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/devet.jpg"  },
-        { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/deset.jpg"  }
+        { name: "Summer Breeze", desc: "White Ceramic", img: "./sliki/osum.jpg"  },
+        { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/devet.jpg"  },
+        { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/deset.jpg"  },
+        { name: "Tourbillon Elite", desc: "Platinum Edition", img: "./sliki/cetv.jpg" },
+        { name: "Summer Breeze", desc: "White Ceramic", img: "./sliki/pet.jpg" },
+        { name: "Midnight Onyx", desc: "Black PVD, 42mm", img: "./sliki/ses.jpg" },
+        { name: "Tourbillon Elite", desc: "Platinum Edition", img: "./sliki/cetv.jpg" }
     ];
 
     if (watchesGrid) {

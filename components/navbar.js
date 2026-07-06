@@ -1,11 +1,12 @@
-// Proveruvame dali sme vo podpapka (journey, watch, itn.)
+// Proveruvame dali sme vo podpapka (journey, watch, services, itn.)
 const isSubfolder =
     window.location.pathname.includes('/journey/') ||
-    window.location.pathname.includes('/watch/');
+    window.location.pathname.includes('/watch/') ||
+    window.location.pathname.includes('/services/'); // ОВА Е ДОДАДЕНО
 
 // Ja podesuvame patekata do HTML fajlot vo zavisnost od toa kade sme
 const navbarUrl = isSubfolder
-    ? "../components/navbar.html"
+    ? "../components/navbar.html" // Смени ја патеката ако navbar.html ти е во друга папка
     : "components/navbar.html";
 
 fetch(navbarUrl)
