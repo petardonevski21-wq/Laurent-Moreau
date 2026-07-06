@@ -5,30 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Laurent & Moreau</title>
     
-    <!-- Вчитај го стилот за навигацијата -->
-    <link rel="stylesheet" href="../css/navbar.css"> <!-- Прилагоди ја патеката доколку е потребно -->
+    <!-- Го повикуваме navbar.css од components папката -->
+    <link rel="stylesheet" href="../components/navbar.css"> 
     
     <!-- Вчитај го стилот за оваа страна -->
     <link rel="stylesheet" href="services.css">
     
-    <!-- Вчитај го фонтот Lato од Google Fonts (ако веќе го немаш локално) -->
+    <!-- Вчитај го фонтот Lato од Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Овде navbar.js ќе го fetch-не менито -->
-    <div id="navbar"></div>
-
-    <!-- Главната секција -->
+    <!-- Главната секција која сега го содржи и менито -->
     <section class="fullscreen-service">
+        <div id="navbar"></div>
         <div class="service-content">
             <h1>Engineered for a Lifetime</h1>
         </div>
     </section>
 
-    <!-- Скриптата што ја врши целата работа за менито -->
-    <script src="../components/"></script> <!-- Прилагоди ја патеката доколку е потребно -->
+    <!-- ВТОРА СЕКЦИЈА: Текст -->
+    <section class="text-section">
+        <div class="text-container">
+            <p>Every exceptional timepiece deserves exceptional care. Our master watchmakers preserve the precision, beauty, and heritage of every watch through meticulous craftsmanship, ensuring it performs flawlessly for generations to come.</p>
+            <p>Every service is carried out with uncompromising attention to detail, using techniques that honor the tradition of fine watchmaking while meeting the highest modern standards.A luxury timepiece is more than an instrument of time—it is a legacy. Every service is performed with uncompromising precision, preserving its exceptional performance and timeless character for generations.</p>
+            <p>True craftsmanship extends beyond creation. Through expert servicing and meticulous attention to every detail, we preserve the performance, precision, and enduring beauty of every timepiece.</p>
+        </div>
+    </section>
+
+    <!-- НОВ ЗАЕДНИЧКИ КОНТЕЈНЕР ЗА СТАКИНГ ЕФЕКТОТ -->
+<div class="scroll-wrapper">
+
+        <!-- ПРВА СЕКЦИЈА -->
+        <section class="master-section slika-1">
+            <div class="master-container">
+                <h2>Master Watchmakers</h2>
+                <p>Our certified master watchmakers combine generations of expertise with meticulous craftsmanship, ensuring every timepiece receives the highest level of care and precision.</p>
+            </div>
+        </section>
+
+        <!-- ВТОРА СЕКЦИЈА -->
+        <section class="master-section slika-2">
+            <div class="master-container">
+                <h2>Training & Expertise</h2>
+                <p>Exceptional craftsmanship begins with exceptional expertise. Our highly trained specialists apply generations of watchmaking knowledge to preserve the precision, reliability, and enduring value of every luxury timepiece entrusted to our care.</p>
+            </div>
+        </section>
+        
+        <!-- ТРЕТА СЕКЦИЈА -->
+        <section class="master-section slika-3">
+            <div class="master-container">
+                <h2>After-Sales Service</h2>
+                <p>A luxury timepiece deserves enduring care. Our dedicated after-sales service ensures every watch receives expert attention, preserving its precision, elegance, and legacy for years to come through uncompromising craftsmanship and genuine expertise.</p>
+            </div>
+        </section>
+        
+        <!-- ЧЕТВРТА СЕКЦИЈА (Останува иста) -->
+        <section class="training-section">
+            <div class="training-container">
+                <h2>Quality & Durability</h2>
+                <p>Precision is measured not only by performance, but by longevity. Our commitment to superior craftsmanship and uncompromising standards ensures every timepiece maintains its reliability, beauty, and value for years to come.</p>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+
+        <section class="protection-section">
+        <div class="protection-left">
+            <h2>PROTECT THE<br>WATCHES<br><em>YOU LOVE</em></h2>
+            <p>The Laurent & Moreau Hi-Care Programme unites exclusive services and priority support to accompany your journey. Elevate your timepiece experience with our dedicated lifetime care.</p>
+            <a href="#" class="explore-btn">Learn more</a>
+        </div>
+        
+        <div class="protection-right">
+            <div class="protection-card">
+                <img src="./sliki/protect.jpg" alt="Extended Warranty">
+                <h3>Extended International Warranty</h3>
+                <p>Our International Sales Warranty protects your Laurent & Moreau timepiece against any manufacturing defects. Extend your coverage up to 5 years when you register your watch in our exclusive network.</p>
+            </div>
+            
+            <div class="protection-card">
+                <img src="./sliki/dva.jpg" alt="Coverage Service">
+                <h3>Premium Coverage Service</h3>
+                <p>A complimentary 2-year service protecting your luxury watch from accidental damage and functional impacts. Available for all timepieces acquired through our official boutiques.</p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    
+    <!-- Скриптите што ја врши целата работа -->
+    <script src="../components/navbar.js"></script> 
+    <script src="services.js"></script>
+
 </body>
 </html>
