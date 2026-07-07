@@ -64,6 +64,17 @@ if (window.location.pathname.includes('/watch/')) {
         
         setupMobileMenu();
         setupMegaMenu();
+
+        // Close mobile menu when any nav link is clicked
+        // Must run here, inside .then(), so .mobile-link elements exist in the DOM
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const openMenu = document.querySelector('.js-mobile-menu.active');
+                if (openMenu) openMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                if (typeof lenis !== 'undefined') lenis.start();
+            });
+        });
     }
   });
 
@@ -165,10 +176,3 @@ function setupMegaMenu() {
         });
     });
 }
-
-document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-        document.querySelector('.js-mobile-menu').classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
