@@ -308,3 +308,180 @@ body {
     line-height: 1.6;
     color: #555555;
 }
+
+
+/* ========================================= */
+/* ПРОФЕСИОНАЛНА МОБИЛНА ВЕРЗИЈА (ПОД 992px) */
+/* ========================================= */
+
+@media screen and (max-width: 992px) {
+    /* Прилагодување на последната секција со големата слика */
+    .training-section {
+        padding: 4rem 2rem; /* Помал простор од страните за мобилен */
+        height: auto;
+        min-height: 100vh;
+    }
+.slika-1 {
+    /* Стандардно е center (50%). Со 30% ја поместуваме сликата. 
+       Ако сакаш уште повеќе, стави 20% или 10%. */
+    background-position: 30% center; 
+}
+
+/* 2. Активирање на sticky ефектот на мобилен (сликите да стојат во место) */
+.master-section {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    height: 100vh; 
+    height: 100svh; /* 100svh спречува сликата да "скока" кога ќе се скрие URL лентата на телефонот */
+    padding: 4rem 2rem; /* Го изедначуваме падингот со training-section за да не се крши ефектот */
+}
+
+/* 3. Изедначување на текстот за мобилен */
+.master-container p {
+    font-size: 1rem; 
+}
+
+/* 4. Фикс за iOS Safari: овозможува секциите мазно да се лизгаат една преку друга */
+.scroll-wrapper {
+    clip-path: inset(0 0 0 0);
+}
+    .training-container p {
+        font-size: 1rem; /* Оптимизиран фонт за читање на помали екрани */
+    }
+
+    /* Прилагодување на секцијата 'Protect the watches' */
+    .protection-section {
+        flex-direction: column; /* Ги поставуваме левиот и десниот дел еден под друг */
+        padding: 4rem 2rem;
+        gap: 3rem;
+    }
+
+    .protection-left {
+        max-width: 100%;
+        text-align: center; /* Центрирањето изгледа попремиум на мобилен */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .protection-left h2 {
+        font-size: 2.5rem; /* Намален наслов за да не излегува од екран */
+    }
+
+    .protection-right {
+        flex-direction: column; /* Картичките со слики ги редиме една под друга */
+        width: 100%;
+        gap: 2.5rem;
+    }
+
+    .protection-card {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .protection-card img {
+        max-width: 100%;
+        border-radius: 4px; /* Опционално: малку помек раб на сликите за мобилен */
+    }
+}
+
+/* Дополнителни ситни корекции за многу мали телефони (под 480px) */
+@media screen and (max-width: 480px) {
+    .protection-left h2 {
+        font-size: 2rem;
+    }
+    
+    .explore-btn {
+        width: 100%; /* Копчето завзема цела ширина на мали екрани за полесно кликање */
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+/* ================================================================ */
+/* MOBILE RESPONSIVE STYLES — 320px to 768px                        */
+/* Everything above this point, including the existing 992px and    */
+/* 480px breakpoints, is untouched. Desktop (>768px) keeps rendering*/
+/* pixel-for-pixel identical. Every rule below is nested inside a   */
+/* max-width: 768px query, so none of it ever reaches desktop.      */
+/* ================================================================ */
+@media screen and (max-width: 768px) {
+
+    /* Global safety net: guarantees no horizontal scroll on any phone */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* ---- Hero (fullscreen-service) ---- */
+    .fullscreen-service {
+        padding: 2rem 1.5rem;
+        height: 100vh;
+        height: 100svh; /* avoids the mobile address-bar viewport jump */
+    }
+
+    .service-content h1 {
+        font-size: clamp(1.875rem, 7vw, 2.5rem);
+        line-height: 1.25;
+        letter-spacing: 0.5px;
+        overflow-wrap: break-word;
+    }
+
+    /* ---- Intro text section ---- */
+    .text-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .text-container p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        margin-bottom: 1.75rem;
+    }
+
+    /* ---- Sticky stacking sections: Master Watchmakers / Training & Expertise / After-Sales Service ---- */
+    .master-section {
+        height: 100vh;
+        height: 100svh;
+        padding: 2rem 1.5rem 3.5rem;
+    }
+
+    .master-container h2,
+    .training-container h2 {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        overflow-wrap: break-word;
+    }
+
+    .master-container p {
+        font-size: 1rem;
+    }
+
+    /* ---- Quality & Durability: align side padding with the rest ---- */
+.training-section {
+    padding: 4rem 2rem;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh; /* <-- ДОДАДИ ЈА САМО ОВАА ЛИНИЈА */
+}
+
+    /* ---- Protect the watches: align side padding with the rest ---- */
+    .protection-section {
+        padding: 4rem 1.5rem;
+    }
+
+    /* ---- CTA button: bigger, more reliable touch target ---- */
+    .explore-btn {
+        display: inline-block;
+        padding: 16px 32px;
+        font-size: 0.95rem;
+    }
+}
+
